@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Anas — Python Developer</title>
+<meta name="description" content="Muhammad Anas — Python Developer building RAG pipelines, full-stack apps, and data systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14;
+    --surface:#11151d;
+    --surface-2:#161b25;
+    --border:#232936;
+    --border-soft:#1a2029;
+    --text:#e7e9ee;
+    --text-dim:#8b93a3;
+    --text-faint:#5b6272;
+    --amber:#e8a33d;
+    --amber-dim:#a8792f;
+    --teal:#49c5b1;
+    --teal-dim:#2f8577;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --sans:'Inter', system-ui, sans-serif;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--border-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .mono{font-family:var(--mono);}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,14,20,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:60px;}
+  .brand{font-family:var(--mono); font-weight:600; font-size:14px; letter-spacing:0.02em; text-decoration:none; color:var(--text);}
+  .brand .cursor{color:var(--amber);}
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{font-family:var(--mono); font-size:13px; color:var(--text-dim); text-decoration:none; transition:color .15s;}
+  .navlinks a:hover{color:var(--amber);}
+  .navlinks{}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* HERO */
+  header.hero{padding:88px 0 64px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--teal);
+    display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:"●"; font-size:8px; color:var(--teal);}
+  h1{
+    font-family:var(--mono); font-weight:700; font-size:clamp(30px,5vw,46px);
+    line-height:1.15; margin:0 0 14px; letter-spacing:-0.01em;
+  }
+  h1 span{color:var(--amber);}
+  .role-line{
+    font-family:var(--mono); font-size:15px; color:var(--text-dim); margin:0 0 26px;
+  }
+  .hero-desc{max-width:560px; color:var(--text-dim); font-size:15.5px; margin:0 0 32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:10px 18px; border-radius:4px;
+    text-decoration:none; border:1px solid var(--border); color:var(--text);
+    transition:border-color .15s, color .15s;
+  }
+  .btn:hover{border-color:var(--amber); color:var(--amber);}
+  .btn.primary{background:var(--amber); border-color:var(--amber); color:#1c1204; font-weight:600;}
+  .btn.primary:hover{background:#f0ae4a; color:#1c1204;}
+
+  /* CONSOLE - signature element */
+  .console{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    overflow:hidden; box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .console-bar{
+    display:flex; align-items:center; gap:8px; padding:10px 14px;
+    border-bottom:1px solid var(--border); background:var(--surface-2);
+  }
+  .dot{width:10px; height:10px; border-radius:50%;}
+  .dot.r{background:#4d3535;} .dot.y{background:#4d4535;} .dot.g{background:#354d3d;}
+  .console-title{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin-left:8px;}
+  .console-body{padding:20px 22px; font-family:var(--mono); font-size:13.5px; min-height:230px;}
+  .console-line{color:var(--text-dim); margin:0 0 6px; white-space:pre-wrap;}
+  .console-prompt{color:var(--teal);}
+  .console-query{color:var(--text);}
+  .caret{display:inline-block; width:7px; height:14px; background:var(--amber); vertical-align:middle; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .chunk{
+    display:flex; justify-content:space-between; gap:12px; padding:7px 10px;
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:4px;
+    margin:4px 0; opacity:0; transform:translateY(4px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .chunk.show{opacity:1; transform:translateY(0);}
+  .chunk-src{color:var(--text-dim);}
+  .chunk-score{color:var(--amber); font-weight:600;}
+  .answer{
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--border);
+    color:var(--text); opacity:0; transition:opacity .4s ease;
+  }
+  .answer.show{opacity:1;}
+  .answer .label{color:var(--teal);}
+
+  /* SECTIONS */
+  section{padding:64px 0; border-top:1px solid var(--border);}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:28px;}
+  .sec-tag{font-family:var(--mono); font-size:12px; color:var(--text-faint);}
+  h2{font-family:var(--mono); font-size:22px; font-weight:600; margin:0;}
+  .summary-text{max-width:680px; color:var(--text-dim); font-size:15.5px;}
+
+  /* SKILLS - stacked layers */
+  .stack{display:flex; flex-direction:column; gap:10px;}
+  .layer{
+    background:var(--surface); border:1px solid var(--border); border-radius:6px;
+    padding:16px 20px; display:grid; grid-template-columns:170px 1fr; gap:16px; align-items:start;
+  }
+  .layer-name{font-family:var(--mono); font-size:13px; color:var(--teal); font-weight:600;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--mono); font-size:12px; color:var(--text-dim);
+    background:var(--surface-2); border:1px solid var(--border-soft);
+    padding:4px 10px; border-radius:4px;
+  }
+  @media (max-width:640px){ .layer{grid-template-columns:1fr;} }
+
+  /* PROJECTS */
+  .projects{display:flex; flex-direction:column; gap:16px;}
+  .project{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:22px 24px;
+  }
+  .project-head{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    margin-bottom:6px;
+  }
+  .project-path{font-family:var(--mono); font-size:14.5px; color:var(--amber); font-weight:600;}
+  .project-meta{font-family:var(--mono); font-size:11.5px; color:var(--text-faint);}
+  .project-stack{font-family:var(--mono); font-size:12px; color:var(--teal-dim); margin:6px 0 14px;}
+  .project ul{margin:0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
+  .project li{margin-bottom:6px;}
+  .project li::marker{color:var(--text-faint);}
+
+  /* EDUCATION */
+  .edu-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:20px 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+  .edu-school{font-weight:600; font-size:15px;}
+  .edu-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-dim);}
+  .edu-course{color:var(--text-dim); font-size:14px; margin-top:8px;}
+
+  /* CONTACT / FOOTER */
+  footer{padding:56px 0 40px; border-top:1px solid var(--border);}
+  .contact-grid{display:flex; gap:28px; flex-wrap:wrap; margin-bottom:36px;}
+  .contact-item{display:flex; flex-direction:column; gap:4px;}
+  .contact-label{font-family:var(--mono); font-size:11px; color:var(--text-faint); text-transform:lowercase;}
+  .contact-value{font-size:14.5px; color:var(--text);}
+  .contact-value a{color:var(--teal); text-decoration:none;}
+  .contact-value a:hover{text-decoration:underline;}
+  .foot-bottom{
+    font-family:var(--mono); font-size:12px; color:var(--text-faint);
+    border-top:1px solid var(--border); padding-top:20px;
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand">anas<span class="cursor">_</span></a>
+    <ul class="navlinks">
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">available for opportunities</div>
+    <h1>Muhammad <span>Anas</span></h1>
+    <p class="role-line">Python Developer · AI/ML Engineer (RAG &amp; Applied ML) · Data Analyst</p>
+    <p class="hero-desc">Data Science undergraduate who ships full, working systems rather than isolated scripts — from a production RAG pipeline with cross-document conflict detection, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn primary">view projects</a>
+      <a href="#contact" class="btn">get in touch</a>
+      <a href="https://github.com/Muhammad-Anas59" class="btn" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" class="btn" target="_blank" rel="noopener">linkedin ↗</a>
+    </div>
+
+    <div class="console" role="img" aria-label="Animated demo of the RAG retrieval pipeline responding to a query">
+      <div class="console-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="console-title">rag_pipeline.py — retrieval demo</span>
+      </div>
+      <div class="console-body" id="consoleBody">
+        <p class="console-line"><span class="console-prompt">query&gt;</span> <span class="console-query" id="queryText"></span><span class="caret" id="caret"></span></p>
+        <div id="chunks"></div>
+        <div class="answer" id="answerBox">
+          <span class="label">answer:</span> <span id="answerText"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">01</span><h2>technical stack</h2></div>
+    <div class="stack">
+      <div class="layer reveal">
+        <div class="layer-name">ai / rag</div>
+        <div class="chips">
+          <span class="chip">Gemini API</span><span class="chip">FAISS</span><span class="chip">Embeddings</span><span class="chip">LangChain splitters</span><span class="chip">Prompt design</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">machine learning</div>
+        <div class="chips">
+          <span class="chip">Linear/Logistic Regression</span><span class="chip">Decision Trees</span><span class="chip">Random Forest</span><span class="chip">SVM</span><span class="chip">k-NN</span><span class="chip">Naive Bayes</span><span class="chip">Clustering</span><span class="chip">PCA</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">backend / api</div>
+        <div class="chips">
+          <span class="chip">Flask</span><span class="chip">Flask-Login</span><span class="chip">Flask-WTF</span><span class="chip">Flask-Limiter</span><span class="chip">Flask-SQLAlchemy</span><span class="chip">REST design</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">data / db</div>
+        <div class="chips">
+          <span class="chip">MySQL (3NF)</span><span class="chip">SQLite</span><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Matplotlib</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">frontend / desktop</div>
+        <div class="chips">
+          <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Jinja2</span><span class="chip">Tailwind</span><span class="chip">CustomTkinter</span><span class="chip">ReportLab</span><span class="chip">PyInstaller</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">security / tools</div>
+        <div class="chips">
+          <span class="chip">Parameterized queries</span><span class="chip">CSRF protection</span><span class="chip">Rate limiting</span><span class="chip">bcrypt</span><span class="chip">Git</span><span class="chip">Docker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">02</span><h2>projects &amp; delivered systems</h2></div>
+    <div class="projects">
+
+      <article class="project reveal">
+        <div class="project-head">
+          <span class="project-path">~/projects/ai-knowledge-assistant</span>
+          <span class="project-meta">2026 · Lahore</span>
+        </div>
+        <p class="project-stack">Flask · Gemini API · FAISS · SQLite</p>
+        <ul>
+          <li>Built a full RAG pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — so document sets never cross-contaminate retrieval</li>
+          <li>Added cross-document conflict detection that flags disagreements between sources instead of silently picking one answer</li>
+          <li>Built a retrieval-evaluation module tracking retrieval accuracy over time instead of guessing</li>
+          <li>Handled Gemini free-tier rate limits with retry-with-backoff; secured with CSRF protection, rate-limited login, enforced password strength</li>
+          <li>Containerized with Docker for one-command deployment</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-head">
+          <span class="project-path">~/projects/hotel-reservation-system</span>
+          <span class="project-meta">2026 · Lahore</span>
+        </div>
+        <p class="project-stack">Python (Flask REST API) · MySQL · HTML/CSS/JS</p>
+        <ul>
+          <li>Designed a 10-table 3NF MySQL schema supporting multi-branch operations across Lahore and Islamabad</li>
+          <li>Wrapped reservation + payment creation in a single atomic transaction to guarantee no partial bookings</li>
+          <li>Built a live dashboard for occupancy, revenue, and bookings that updates in real time</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-head">
+          <span class="project-path">~/projects/stockflow-pro</span>
+          <span class="project-meta">2026 · Lahore</span>
+        </div>
+        <p class="project-stack">Python · CustomTkinter · MySQL</p>
+        <ul>
+          <li>Shipped a barcode-level warehouse system as a standalone Windows .exe — no Python install required</li>
+          <li>Implemented per-carton movement audit trail (received → stored → opened) for full stock traceability</li>
+          <li>Added embedded Matplotlib reporting and one-click PDF export via ReportLab; secured with bcrypt auth</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-head">
+          <span class="project-path">~/projects/powerbi-dashboards</span>
+          <span class="project-meta">2025–present · Lahore</span>
+        </div>
+        <p class="project-stack">Power BI · DAX</p>
+        <ul>
+          <li>Built DAX-driven dashboards with KPI cards, slicers, drill-throughs, and time-intelligence measures, turning raw spreadsheets into stakeholder-ready reporting</li>
+        </ul>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-head">
+          <span class="project-path">~/projects/smart-parking-allocator</span>
+          <span class="project-meta">2025 · Lahore</span>
+        </div>
+        <p class="project-stack">C++</p>
+        <ul>
+          <li>Console-based, OOP-structured allocator for real-time slot allocation and availability tracking</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">03</span><h2>education</h2></div>
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-school">BS Data Science — University of Management &amp; Technology (UMT), Lahore</div>
+        <div class="edu-course">Machine Learning · Data Analysis (Power BI) · Statistics · Database Management · Python Programming</div>
+      </div>
+      <div class="edu-meta">2024 – present · CGPA 3.59 / 4.00</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>get in touch</h2></div>
+    <div class="contact-grid reveal">
+      <div class="contact-item">
+        <span class="contact-label">email</span>
+        <span class="contact-value"><a href="mailto:muhammadanasehsan@gmail.com">muhammadanasehsan@gmail.com</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">phone</span>
+        <span class="contact-value">0319-4794080</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">location</span>
+        <span class="contact-value">Lahore, Pakistan</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">github</span>
+        <span class="contact-value"><a href="https://github.com/Muhammad-Anas59" target="_blank" rel="noopener">github.com/Muhammad-Anas59</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">linkedin</span>
+        <span class="contact-value"><a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" target="_blank" rel="noopener">linkedin.com/in/muhammad-anas</a></span>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Muhammad Anas. Built with HTML, CSS, and no framework.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var query = "how does conflict detection work across sources?";
+  var chunks = [
+    {src:"knowledge_assistant/conflict_detector.py", score:"0.94"},
+    {src:"knowledge_assistant/retrieval_eval.md", score:"0.88"},
+    {src:"knowledge_assistant/faiss_index.py", score:"0.81"}
+  ];
+  var answer = "flags disagreements between retrieved sources instead of silently picking one, then surfaces both for review.";
+
+  var qEl = document.getElementById('queryText');
+  var chunksEl = document.getElementById('chunks');
+  var answerBox = document.getElementById('answerBox');
+  var answerText = document.getElementById('answerText');
+  var caret = document.getElementById('caret');
+
+  var i = 0;
+  function typeQuery(){
+    if(i <= query.length){
+      qEl.textContent = query.slice(0, i);
+      i++;
+      setTimeout(typeQuery, 38);
+    } else {
+      setTimeout(showChunks, 300);
+    }
+  }
+
+  function showChunks(){
+    caret.style.display = 'none';
+    chunks.forEach(function(c, idx){
+      setTimeout(function(){
+        var row = document.createElement('div');
+        row.className = 'chunk';
+        row.innerHTML = '<span class="chunk-src">' + c.src + '</span><span class="chunk-score">' + c.score + '</span>';
+        chunksEl.appendChild(row);
+        requestAnimationFrame(function(){ row.classList.add('show'); });
+      }, idx * 260);
+    });
+    setTimeout(function(){
+      answerText.textContent = answer;
+      answerBox.classList.add('show');
+    }, chunks.length * 260 + 300);
+  }
+
+  setTimeout(typeQuery, 500);
+
+  var revealEls = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.1});
+  revealEls.forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
