@@ -170,6 +170,22 @@
   .project-link{font-family:var(--mono); font-size:12.5px; color:var(--teal); text-decoration:none; white-space:nowrap;}
   .project-link:hover{text-decoration:underline;}
   .project-stat-row{display:flex; gap:18px; flex-wrap:wrap; margin:12px 0 16px; padding:10px 14px; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:6px;}
+
+  /* EVAL BREAKDOWN TABLE */
+  .eval-breakdown{
+    margin:0 0 16px; border:1px solid var(--border-soft); border-radius:6px; overflow:hidden;
+    font-family:var(--mono); font-size:12.5px;
+  }
+  .eval-row{
+    display:flex; justify-content:space-between; gap:12px; padding:8px 14px;
+    background:var(--surface-2); color:var(--text-dim);
+  }
+  .eval-row:nth-child(odd){background:var(--surface);}
+  .eval-row .eval-result{color:var(--teal); font-weight:600;}
+  .eval-row.eval-head{
+    background:var(--surface-2); color:var(--text-faint); text-transform:uppercase; letter-spacing:.03em; font-size:10.5px;
+    border-bottom:1px solid var(--border-soft);
+  }
   .project-stat{display:flex; flex-direction:column; gap:2px;}
   .project-stat-num{font-family:var(--mono); font-size:16px; font-weight:700; color:var(--amber);}
   .project-stat-label{font-family:var(--mono); font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.03em;}
@@ -200,6 +216,19 @@
   @media (max-width:640px){
     .shots-grid img{height:110px;}
   }
+
+  /* EXPERIENCE */
+  .exp-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:22px 24px;
+  }
+  .exp-head{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:10px;}
+  .exp-role{font-weight:600; font-size:15px;}
+  .exp-role .exp-company{color:var(--teal);}
+  .exp-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-dim); white-space:nowrap;}
+  .exp-card ul{margin:0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
+  .exp-card li{margin-bottom:6px;}
+  .exp-card li::marker{color:var(--text-faint);}
 
   /* EDUCATION */
   .edu-card{
@@ -234,6 +263,7 @@
     <a href="#" class="brand">Anas</a>
     <ul class="navlinks">
       <li><a href="#projects">projects</a></li>
+      <li><a href="#experience">experience</a></li>
       <li><a href="#skills">skills</a></li>
       <li><a href="#education">education</a></li>
       <li><a href="#contact">contact</a></li>
@@ -246,7 +276,7 @@
     <div class="eyebrow">available for opportunities</div>
     <h1>Muhammad <span>Anas</span></h1>
     <p class="role-line">Python Developer · AI/ML Engineer (RAG &amp; Applied ML) · Data Analyst</p>
-    <p class="hero-desc">Aspiring Data Scientist who ships full, working systems rather than isolated scripts — from an AI support agent that catches contradictions in a business's own policy documents and knows when to escalate to a human, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
+    <p class="hero-desc">AI/ML Engineer who ships full, working systems rather than isolated scripts — from an AI support agent that catches contradictions in a business's own policy documents and knows when to escalate to a human, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn primary">view projects</a>
       <a href="#contact" class="btn">get in touch</a>
@@ -342,13 +372,21 @@
           <div class="project-stat"><span class="project-stat-num">5</span><span class="project-stat-label">independent subsystems</span></div>
           <div class="project-stat"><span class="project-stat-num">live</span><span class="project-stat-label">Shopify order lookup</span></div>
         </div>
+        <div class="eval-breakdown">
+          <div class="eval-row eval-head"><span>category</span><span>result</span></div>
+          <div class="eval-row"><span>Policy Q&amp;A</span><span class="eval-result">24/24</span></div>
+          <div class="eval-row"><span>Conflict detection</span><span class="eval-result">6/6</span></div>
+          <div class="eval-row"><span>Router (order vs. policy classification)</span><span class="eval-result">10/10</span></div>
+          <div class="eval-row"><span>Sentiment/urgency detection</span><span class="eval-result">10/11</span></div>
+          <div class="eval-row"><span>Order lookup</span><span class="eval-result">6/6</span></div>
+        </div>
         <ul>
           <li>AI customer support agent for e-commerce brands — answers only from a business's real policy documents and refuses to fill gaps with outside knowledge</li>
           <li>Built cross-document conflict detection that catches contradictions between a brand's own policy sources (e.g. official policy vs. an outdated FAQ) before a customer sees a blended, wrong-sounding answer</li>
           <li>Live order status lookup against the Shopify Admin API, routed automatically from policy questions by a classifier</li>
           <li>Sentiment/urgency detection escalates angry or legal-sounding messages to a human immediately, regardless of answer confidence</li>
           <li>Every answer ships with a citation trail back to its source document and a retrieval confidence score — no black box</li>
-          <li>Ships with an admin dashboard (tickets, analytics, resolution rate) and a 57-case automated evaluation harness run against the live pipeline, not mocked — 98.2% passing</li>
+          <li>Ships with an admin dashboard (tickets, analytics, resolution rate) backed by a 57-case automated evaluation harness run against the live pipeline, not mocked — 98.2% passing</li>
           <li>Built to be dropped into any Shopify store: swap the policy docs, re-embed, connect that store's Shopify credentials — zero code changes</li>
         </ul>
       </article>
@@ -358,7 +396,7 @@
           <span class="project-path">~/projects/ai-knowledge-assistant</span>
           <span class="project-meta">2026 · Lahore</span>
         </div>
-        <p class="project-stack">Flask · Gemini API · FAISS · SQLite</p>
+        <p class="project-stack">Flask · Gemini API · FAISS · SQLite · Docker</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">sellerdocs-ai — app screenshots</span></div>
           <div class="shots-grid">
@@ -367,12 +405,16 @@
             <a href="project-images/knowledge-assistant-eval.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-eval.png" alt="Evaluation screen for tracking retrieval accuracy over time" loading="lazy"></a>
           </div>
         </div>
+        <div class="project-stat-row">
+          <div class="project-stat"><span class="project-stat-num">28</span><span class="project-stat-label">documents indexed</span></div>
+          <div class="project-stat"><span class="project-stat-num">82</span><span class="project-stat-label">chunks retrieved</span></div>
+          <div class="project-stat"><span class="project-stat-num">96%</span><span class="project-stat-label">retrieval accuracy</span></div>
+        </div>
         <ul>
-          <li>Built a full RAG pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — so document sets never cross-contaminate retrieval</li>
-          <li>Added cross-document conflict detection that flags disagreements between sources instead of silently picking one answer</li>
-          <li>Built a retrieval-evaluation module tracking retrieval accuracy over time instead of guessing</li>
-          <li>Handled Gemini free-tier rate limits with retry-with-backoff; secured with CSRF protection, rate-limited login, enforced password strength</li>
-          <li>Containerized with Docker for one-command deployment</li>
+          <li>Built a RAG-based Q&amp;A system answering questions from company documents and flagging cross-source contradictions</li>
+          <li>Built a full retrieval pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — across 28 documents / 82 chunks</li>
+          <li>Built an evaluation module tracking retrieval accuracy at 96% via automated test queries</li>
+          <li>Secured with CSRF protection, rate-limited login, and Gemini retry-with-backoff; containerized with Docker for one-command deployment</li>
         </ul>
       </article>
 
@@ -444,9 +486,26 @@
   </div>
 </section>
 
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">03</span><h2>experience</h2></div>
+    <div class="exp-card reveal">
+      <div class="exp-head">
+        <span class="exp-role">AI Intern — <span class="exp-company">Decode Labs</span> (Remote)</span>
+        <span class="exp-meta">2026</span>
+      </div>
+      <ul>
+        <li>Built a rule-based chatbot handling intent matching and multi-turn conversational logic</li>
+        <li>Trained an Iris species classifier using classical supervised learning, evaluating accuracy across multiple algorithms</li>
+        <li>Built a tech-stack recommendation tool matching project requirements to suitable technologies</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="education">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">03</span><h2>education</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>education</h2></div>
     <div class="edu-card reveal">
       <div>
         <div class="edu-school">BS Data Science — University of Management &amp; Technology (UMT), Lahore</div>
@@ -459,7 +518,7 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>get in touch</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">05</span><h2>get in touch</h2></div>
     <div class="contact-grid reveal">
       <div class="contact-item">
         <span class="contact-label">email</span>
