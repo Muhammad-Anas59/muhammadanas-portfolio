@@ -161,10 +161,45 @@
   }
   .project-path{font-family:var(--mono); font-size:14.5px; color:var(--amber); font-weight:600;}
   .project-meta{font-family:var(--mono); font-size:11.5px; color:var(--text-faint);}
+  .project.featured{border-color:var(--amber-dim); background:linear-gradient(180deg, rgba(232,163,61,0.05), var(--surface) 60px);}
+  .project-top{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .project-badge{
+    font-family:var(--mono); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+    color:#1c1204; background:var(--amber); padding:2px 8px; border-radius:3px;
+  }
+  .project-link{font-family:var(--mono); font-size:12.5px; color:var(--teal); text-decoration:none; white-space:nowrap;}
+  .project-link:hover{text-decoration:underline;}
+  .project-stat-row{display:flex; gap:18px; flex-wrap:wrap; margin:12px 0 16px; padding:10px 14px; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:6px;}
+  .project-stat{display:flex; flex-direction:column; gap:2px;}
+  .project-stat-num{font-family:var(--mono); font-size:16px; font-weight:700; color:var(--amber);}
+  .project-stat-label{font-family:var(--mono); font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.03em;}
   .project-stack{font-family:var(--mono); font-size:12px; color:var(--teal-dim); margin:6px 0 14px;}
   .project ul{margin:0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
   .project li{margin-bottom:6px;}
   .project li::marker{color:var(--text-faint);}
+
+  /* PROJECT SCREENSHOTS */
+  .shots{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:6px;
+    overflow:hidden; margin:14px 0 16px;
+  }
+  .shots-bar{
+    display:flex; align-items:center; gap:8px; padding:8px 12px;
+    border-bottom:1px solid var(--border-soft); background:var(--surface);
+  }
+  .shots-bar .dot{width:8px; height:8px;}
+  .shots-bar-title{font-family:var(--mono); font-size:11px; color:var(--text-faint); margin-left:4px;}
+  .shots-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border-soft);}
+  .shots-grid a{display:block; overflow:hidden; background:var(--surface-2); line-height:0; cursor:zoom-in;}
+  .shots-grid img{
+    width:100%; height:150px; object-fit:cover; object-position:top;
+    display:block; transition:transform .35s ease, filter .35s ease;
+    filter:saturate(0.92);
+  }
+  .shots-grid a:hover img{transform:scale(1.06); filter:saturate(1.05);}
+  @media (max-width:640px){
+    .shots-grid img{height:110px;}
+  }
 
   /* EDUCATION */
   .edu-card{
@@ -211,7 +246,7 @@
     <div class="eyebrow">available for opportunities</div>
     <h1>Muhammad <span>Anas</span></h1>
     <p class="role-line">Python Developer · AI/ML Engineer (RAG &amp; Applied ML) · Data Analyst</p>
-    <p class="hero-desc">Aspiring Data Scientist who ships full, working systems rather than isolated scripts — from a production RAG pipeline with cross-document conflict detection, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
+    <p class="hero-desc">Aspiring Data Scientist who ships full, working systems rather than isolated scripts — from an AI support agent that catches contradictions in a business's own policy documents and knows when to escalate to a human, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn primary">view projects</a>
       <a href="#contact" class="btn">get in touch</a>
@@ -284,12 +319,54 @@
     <div class="sec-head reveal"><span class="sec-tag">02</span><h2>projects &amp; delivered systems</h2></div>
     <div class="projects">
 
+      <article class="project featured reveal">
+        <div class="project-head">
+          <div class="project-top">
+            <span class="project-path">~/projects/ai-support-agent</span>
+            <span class="project-badge">client build</span>
+          </div>
+          <a href="https://github.com/Muhammad-Anas59/AI-Support-Agent" class="project-link" target="_blank" rel="noopener">repo ↗</a>
+        </div>
+        <p class="project-meta" style="margin-bottom:10px;">2026 · Lahore</p>
+        <p class="project-stack">Flask · Gemini API · FAISS · Shopify Admin API · RAG</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">verve-athletics.demo — live screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/support-agent-widget.png" target="_blank" rel="noopener"><img src="project-images/support-agent-widget.png" alt="Chat widget catching a policy conflict on the demo storefront" loading="lazy"></a>
+            <a href="project-images/support-agent-analytics.png" target="_blank" rel="noopener"><img src="project-images/support-agent-analytics.png" alt="Admin analytics dashboard with resolution rate and ticket breakdown" loading="lazy"></a>
+            <a href="project-images/support-agent-performance.png" target="_blank" rel="noopener"><img src="project-images/support-agent-performance.png" alt="Performance tab showing escalation reasons and handled-by breakdown" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="project-stat-row">
+          <div class="project-stat"><span class="project-stat-num">56/57</span><span class="project-stat-label">eval cases passing</span></div>
+          <div class="project-stat"><span class="project-stat-num">5</span><span class="project-stat-label">independent subsystems</span></div>
+          <div class="project-stat"><span class="project-stat-num">live</span><span class="project-stat-label">Shopify order lookup</span></div>
+        </div>
+        <ul>
+          <li>AI customer support agent for e-commerce brands — answers only from a business's real policy documents and refuses to fill gaps with outside knowledge</li>
+          <li>Built cross-document conflict detection that catches contradictions between a brand's own policy sources (e.g. official policy vs. an outdated FAQ) before a customer sees a blended, wrong-sounding answer</li>
+          <li>Live order status lookup against the Shopify Admin API, routed automatically from policy questions by a classifier</li>
+          <li>Sentiment/urgency detection escalates angry or legal-sounding messages to a human immediately, regardless of answer confidence</li>
+          <li>Every answer ships with a citation trail back to its source document and a retrieval confidence score — no black box</li>
+          <li>Ships with an admin dashboard (tickets, analytics, resolution rate) and a 57-case automated evaluation harness run against the live pipeline, not mocked — 98.2% passing</li>
+          <li>Built to be dropped into any Shopify store: swap the policy docs, re-embed, connect that store's Shopify credentials — zero code changes</li>
+        </ul>
+      </article>
+
       <article class="project reveal">
         <div class="project-head">
           <span class="project-path">~/projects/ai-knowledge-assistant</span>
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Flask · Gemini API · FAISS · SQLite</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">sellerdocs-ai — app screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/knowledge-assistant-chat.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-chat.png" alt="Chat interface answering a question with a flagged document conflict" loading="lazy"></a>
+            <a href="project-images/knowledge-assistant-kb.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-kb.png" alt="Knowledge bases list for organizing documents by topic" loading="lazy"></a>
+            <a href="project-images/knowledge-assistant-eval.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-eval.png" alt="Evaluation screen for tracking retrieval accuracy over time" loading="lazy"></a>
+          </div>
+        </div>
         <ul>
           <li>Built a full RAG pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — so document sets never cross-contaminate retrieval</li>
           <li>Added cross-document conflict detection that flags disagreements between sources instead of silently picking one answer</li>
@@ -305,6 +382,14 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Python (Flask REST API) · MySQL · HTML/CSS/JS</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">pearl-hotels — admin screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/hotel-dashboard.png" target="_blank" rel="noopener"><img src="project-images/hotel-dashboard.png" alt="Hotel dashboard with live revenue and reservation stats" loading="lazy"></a>
+            <a href="project-images/hotel-reservations.png" target="_blank" rel="noopener"><img src="project-images/hotel-reservations.png" alt="Reservations table with check-in, check-out, and status" loading="lazy"></a>
+            <a href="project-images/hotel-payments.png" target="_blank" rel="noopener"><img src="project-images/hotel-payments.png" alt="Payments screen with billing records and totals" loading="lazy"></a>
+          </div>
+        </div>
         <ul>
           <li>Designed a 10-table 3NF MySQL schema supporting multi-branch operations across Lahore and Islamabad</li>
           <li>Wrapped reservation + payment creation in a single atomic transaction to guarantee no partial bookings</li>
@@ -318,6 +403,14 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Python · CustomTkinter · MySQL</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">stockflow-pro.exe — app screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/stockflow-dashboard.png" target="_blank" rel="noopener"><img src="project-images/stockflow-dashboard.png" alt="StockFlow Pro dashboard with stock value and quick actions" loading="lazy"></a>
+            <a href="project-images/stockflow-inventory.png" target="_blank" rel="noopener"><img src="project-images/stockflow-inventory.png" alt="Inventory management screen with product table and carton actions" loading="lazy"></a>
+            <a href="project-images/stockflow-reports.png" target="_blank" rel="noopener"><img src="project-images/stockflow-reports.png" alt="Reports and analytics screen with revenue charts" loading="lazy"></a>
+          </div>
+        </div>
         <ul>
           <li>Shipped a barcode-level warehouse system as a standalone Windows .exe — no Python install required</li>
           <li>Implemented per-carton movement audit trail (received → stored → opened) for full stock traceability</li>
@@ -359,7 +452,7 @@
         <div class="edu-school">BS Data Science — University of Management &amp; Technology (UMT), Lahore</div>
         <div class="edu-course">Machine Learning · Data Analysis (Power BI) · Statistics · Database Management · Python Programming</div>
       </div>
-      <div class="edu-meta">2024 – present · CGPA 3.59 / 4.00</div>
+      <div class="edu-meta">2024 – present</div>
     </div>
   </div>
 </section>
