@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muhammad Anas — AI/ML Engineer & Python Developer</title>
-<meta name="description" content="Muhammad Anas — AI/ML Engineer & Python Developer building RAG pipelines, full-stack apps, and data systems.">
+<meta name="description" content="Muhammad Anas — AI/ML Engineer & Python Developer building voice AI agents, RAG pipelines, full-stack apps, and data systems.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muhammad Anas — AI/ML Engineer & Python Developer">
-<meta property="og:description" content="AI/ML Engineer who ships full, working systems — RAG pipelines, full-stack apps, and data/BI reporting.">
+<meta property="og:description" content="AI/ML Engineer who ships full, working systems — voice AI agents, RAG pipelines, full-stack apps, and data/BI reporting.">
 <meta property="og:url" content="https://muhammadanas-portfolio-lime.vercel.app/">
 <meta property="og:image" content="https://muhammadanas-portfolio-lime.vercel.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Muhammad Anas — AI/ML Engineer & Python Developer">
-<meta name="twitter:description" content="AI/ML Engineer who ships full, working systems — RAG pipelines, full-stack apps, and data/BI reporting.">
+<meta name="twitter:description" content="AI/ML Engineer who ships full, working systems — voice AI agents, RAG pipelines, full-stack apps, and data/BI reporting.">
 <meta name="twitter:image" content="https://muhammadanas-portfolio-lime.vercel.app/og-image.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0e14'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%23e8a33d' text-anchor='middle'%3EMA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -390,7 +390,7 @@
         <div class="eyebrow">Lahore, Pakistan</div>
         <h1>Muhammad <span>Anas</span></h1>
         <p class="role-line">Python Developer · AI/ML Engineer</p>
-        <p class="hero-desc">AI/ML Engineer who ships full, working systems rather than isolated scripts — from an AI support agent that catches contradictions in a business's own policy documents and knows when to escalate to a human, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
+        <p class="hero-desc">AI/ML Engineer who ships full, working systems rather than isolated scripts — from a real-time voice AI support agent that listens, reasons over a business's own policy documents, and speaks back, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn primary">view projects</a>
           <a href="#contact" class="btn">get in touch</a>
@@ -464,7 +464,7 @@
       <div class="layer reveal">
         <div class="layer-name">ai / rag</div>
         <div class="chips">
-          <span class="chip">Gemini API</span><span class="chip">FAISS</span><span class="chip">Embeddings</span><span class="chip">LangChain splitters</span><span class="chip">Prompt design</span>
+          <span class="chip">Gemini API</span><span class="chip">FAISS</span><span class="chip">Embeddings</span><span class="chip">LangChain splitters</span><span class="chip">Prompt design</span><span class="chip">AssemblyAI (STT)</span><span class="chip">ElevenLabs (TTS)</span><span class="chip">WebSocket audio streaming</span>
         </div>
       </div>
       <div class="layer reveal">
@@ -505,6 +505,38 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="sec-tag">02</span><h2>projects &amp; delivered systems</h2></div>
     <div class="projects">
+
+      <article class="project featured reveal">
+        <div class="project-head">
+          <div class="project-top">
+            <span class="project-path">~/projects/verve-voice-agent</span>
+          </div>
+          <a href="https://verveassist.live" class="project-link" target="_blank" rel="noopener">live ↗</a>
+        </div>
+        <p class="project-meta" style="margin-bottom:10px;">2026 · Lahore</p>
+        <p class="project-stack">Flask-SocketIO · AssemblyAI · Gemini · ElevenLabs · FAISS · AWS EC2</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">verveassist.live — live screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/voice-agent-idle.png" target="_blank" rel="noopener"><img src="project-images/voice-agent-idle.png" alt="Idle state — tap to talk, waiting for the customer to speak" loading="lazy"></a>
+            <a href="project-images/voice-agent-listening.png" target="_blank" rel="noopener"><img src="project-images/voice-agent-listening.png" alt="Listening state with live transcript of the customer's question" loading="lazy"></a>
+            <a href="project-images/voice-agent-escalation.png" target="_blank" rel="noopener"><img src="project-images/voice-agent-escalation.png" alt="Agent escalating a legal-sounding complaint to a human team member" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="project-stat-row">
+          <div class="project-stat"><span class="project-stat-num">real-time</span><span class="project-stat-label">voice conversation loop</span></div>
+          <div class="project-stat"><span class="project-stat-num">98%+</span><span class="project-stat-label">RAG accuracy (reused core)</span></div>
+          <div class="project-stat"><span class="project-stat-num">live</span><span class="project-stat-label">Shopify order lookup</span></div>
+        </div>
+        <ul>
+          <li>Voice-enabled AI customer support agent built for the AssemblyAI Voice Agent Hackathon (lablab.ai), September 2026 — live at verveassist.live</li>
+          <li>Full real-time voice loop: browser mic → AssemblyAI speech-to-text → Gemini-powered RAG pipeline → ElevenLabs text-to-speech, streamed back over WebSocket</li>
+          <li>Built on a production-proven RAG core (retrieval, conflict detection, order lookup, escalation logic) carried over from a prior text-based support agent, with an entirely new voice layer built for this hackathon</li>
+          <li>Conflict detection caught a real contradiction sitting unnoticed in the policy knowledge base — a 24-hour vs. 1-hour cancellation window — during deployment testing</li>
+          <li>Multi-turn conversation state for verification flows, e.g. collecting an order number, then a total</li>
+          <li>Deployed on AWS EC2 behind nginx with Let's Encrypt SSL — HTTPS required for browser microphone access</li>
+        </ul>
+      </article>
 
       <article class="project featured reveal">
         <div class="project-head">
