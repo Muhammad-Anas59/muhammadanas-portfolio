@@ -174,39 +174,78 @@
   .hero-item-title{font-size:14px; font-weight:600; color:var(--text); margin:0 0 4px;}
   .hero-item-desc{font-size:12.5px; color:var(--text-dim); margin:0; line-height:1.55;}
 
-  /* CONSOLE - signature element */
+  /* CONSOLE - live voice-agent pipeline trace */
   .console{
-    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
     overflow:hidden; box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
   }
   .console-bar{
-    display:flex; align-items:center; gap:8px; padding:10px 14px;
+    display:flex; align-items:center; gap:8px; padding:10px 14px; flex-wrap:wrap;
     border-bottom:1px solid var(--border); background:var(--surface-2);
   }
   .dot{width:10px; height:10px; border-radius:50%;}
   .dot.r{background:#4d3535;} .dot.y{background:#4d4535;} .dot.g{background:#354d3d;}
   .console-title{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin-left:8px;}
-  .console-body{padding:20px 22px; font-family:var(--mono); font-size:13.5px; min-height:230px;}
-  .console-line{color:var(--text-dim); margin:0 0 6px; white-space:pre-wrap;}
-  .console-prompt{color:var(--teal);}
-  .console-query{color:var(--text);}
-  .caret{display:inline-block; width:7px; height:14px; background:var(--amber); vertical-align:middle; animation:blink 1s step-end infinite;}
+  .console-tabs{margin-left:auto; display:flex; gap:4px;}
+  .console-tab{
+    font-family:var(--mono); font-size:11px; color:var(--text-faint); background:transparent;
+    border:1px solid transparent; border-radius:4px; padding:3px 9px; cursor:pointer;
+    transition:color .15s, border-color .15s, background .15s;
+  }
+  .console-tab:hover{color:var(--text);}
+  .console-tab.active{color:var(--amber); border-color:var(--amber-dim); background:rgba(232,163,61,0.08);}
+  .console-body{padding:18px 20px 12px; font-family:var(--mono); font-size:13px; min-height:330px;}
+  .say{
+    display:flex; align-items:center; gap:12px; padding:12px 14px; margin-bottom:12px;
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:8px;
+  }
+  .say-text{color:var(--text); font-size:13.5px; line-height:1.45; min-height:20px;}
+  .caret{display:inline-block; width:7px; height:14px; background:var(--amber); vertical-align:middle; margin-left:2px; animation:blink 1s step-end infinite;}
   @keyframes blink{50%{opacity:0;}}
-  .chunk{
-    display:flex; justify-content:space-between; gap:12px; padding:7px 10px;
-    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:4px;
-    margin:4px 0; opacity:0; transform:translateY(4px);
-    transition:opacity .35s ease, transform .35s ease;
+  .wave{display:flex; align-items:center; gap:2px; height:20px; flex-shrink:0;}
+  .wave i{display:block; width:3px; height:5px; border-radius:2px; background:var(--amber); opacity:.45;}
+  .wave.live i{opacity:1; animation:wave .9s ease-in-out infinite;}
+  .wave.live i:nth-child(2){animation-delay:.12s;} .wave.live i:nth-child(3){animation-delay:.24s;}
+  .wave.live i:nth-child(4){animation-delay:.36s;} .wave.live i:nth-child(5){animation-delay:.48s;}
+  .wave.teal i{background:var(--teal);}
+  @keyframes wave{0%,100%{height:5px;}50%{height:18px;}}
+  .stage{
+    display:grid; grid-template-columns:70px 1fr; gap:10px; padding:6px 0;
+    opacity:0; transform:translateY(4px); transition:opacity .35s ease, transform .35s ease;
   }
-  .chunk.show{opacity:1; transform:translateY(0);}
-  .chunk-src{color:var(--text-dim);}
-  .chunk-score{color:var(--amber); font-weight:600;}
-  .answer{
-    margin-top:14px; padding-top:12px; border-top:1px dashed var(--border);
-    color:var(--text); opacity:0; transition:opacity .4s ease;
+  .stage.show{opacity:1; transform:none;}
+  .stage-label{color:var(--teal); font-size:11.5px; padding-top:2px;}
+  .stage-body{color:var(--text-dim); min-width:0; line-height:1.5;}
+  .stage-body b{color:var(--text); font-weight:500;}
+  .hit{display:grid; grid-template-columns:minmax(0,1fr) 64px 34px; gap:10px; align-items:center; padding:3px 0;}
+  .hit-name{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .bar{height:4px; background:var(--border); border-radius:2px; overflow:hidden;}
+  .bar i{display:block; height:100%; width:0; background:var(--amber); transition:width .6s ease;}
+  .hit-score{color:var(--amber); font-weight:600; text-align:right;}
+  .flag{display:inline-block; padding:2px 9px; border-radius:4px; font-size:12px;}
+  .flag.ok{color:var(--teal); background:rgba(73,197,177,0.12);}
+  .flag.warn{color:var(--amber); background:rgba(232,163,61,0.14);}
+  .flag.esc{color:#ef6b6b; background:rgba(239,107,107,0.13);}
+  .reply{
+    display:flex; gap:12px; align-items:flex-start; padding:11px 13px; margin-top:2px;
+    border-left:2px solid var(--teal); background:rgba(73,197,177,0.06); border-radius:0 6px 6px 0;
+    color:var(--text); font-family:var(--sans); font-size:13.5px; line-height:1.5;
   }
-  .answer.show{opacity:1;}
-  .answer .label{color:var(--teal);}
+  .console-note{padding:0 20px 14px; font-family:var(--mono); font-size:10.5px; color:var(--text-faint);}
+  @media (max-width:480px){
+    .console-body{padding:16px 14px 10px; min-height:360px;}
+    .stage{grid-template-columns:68px 1fr; gap:8px;}
+    .console-title{display:none;}
+    .console-tabs{margin-left:8px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .wave.live i,.caret{animation:none;}
+    .stage,.bar i{transition:none;}
+  }
+
+  /* icon-only hero buttons */
+  .btn.icon{display:inline-flex; align-items:center; justify-content:center; padding:10px 12px;}
+  .btn.icon svg{width:16px; height:16px;}
 
   /* SECTIONS */
   section{padding:64px 0; border-top:1px solid var(--border);}
@@ -274,6 +313,28 @@
   .project ul{margin:0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
   .project li{margin-bottom:6px;}
   .project li::marker{color:var(--text-faint);}
+  .project-outcome{margin:0 0 14px; color:var(--text); font-size:15px; font-weight:500; line-height:1.55;}
+  details.more{margin-top:10px;}
+  details.more > summary{
+    cursor:pointer; list-style:none; width:fit-content; padding:6px 0;
+    font-family:var(--mono); font-size:12px; color:var(--teal);
+  }
+  details.more > summary::-webkit-details-marker{display:none;}
+  details.more > summary::before{content:"+ ";}
+  details.more[open] > summary::before{content:"\2212 ";}
+  details.more > summary:hover{text-decoration:underline;}
+  details.more > ul, details.more > .eval-breakdown{margin-top:8px;}
+  .open-banner{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:32px; padding:18px 20px;
+    border:1px solid var(--amber-dim); border-radius:8px;
+    background:linear-gradient(180deg, rgba(232,163,61,0.07), var(--surface));
+  }
+  .open-banner .pulse{width:9px; height:9px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 0 rgba(73,197,177,.5); animation:pulse 2s infinite; flex-shrink:0;}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(73,197,177,0);}100%{box-shadow:0 0 0 0 rgba(73,197,177,0);}}
+  .open-banner .ob-text{flex:1; min-width:240px;}
+  .open-banner strong{display:block; font-size:15px; font-weight:600; color:var(--text); margin-bottom:2px;}
+  .open-banner span.ob-sub{font-size:13.5px; color:var(--text-dim);}
+  @media (prefers-reduced-motion:reduce){ .open-banner .pulse{animation:none;} }
 
   /* PROJECT SCREENSHOTS */
   .shots{
@@ -393,24 +454,20 @@
         <p class="hero-desc">AI/ML Engineer who ships full, working systems rather than isolated scripts — from a real-time voice AI support agent that listens, reasons over a business's own policy documents, and speaks back, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn primary">view projects</a>
-          <a href="resume.pdf" class="btn" download>download resume ↓</a>
+          <a href="resume.pdf" class="btn" download>resume ↓</a>
           <a href="#contact" class="btn">get in touch</a>
-          <a href="https://github.com/Muhammad-Anas59" class="btn" target="_blank" rel="noopener">github ↗</a>
-          <a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" class="btn" target="_blank" rel="noopener">linkedin ↗</a>
+          <a href="https://github.com/Muhammad-Anas59" class="btn icon" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.61.69.5A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+          <a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" class="btn icon" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
         </div>
 
-        <div class="console" role="img" aria-label="Animated demo of the RAG retrieval pipeline responding to a query">
+        <div class="console" role="group" aria-label="Interactive demo of the voice support agent pipeline">
           <div class="console-bar">
             <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-            <span class="console-title">rag_pipeline.py — retrieval demo</span>
+            <span class="console-title">voice_agent — pipeline trace</span>
+            <div class="console-tabs" id="consoleTabs"></div>
           </div>
-          <div class="console-body" id="consoleBody">
-            <p class="console-line"><span class="console-prompt">query&gt;</span> <span class="console-query" id="queryText"></span><span class="caret" id="caret"></span></p>
-            <div id="chunks"></div>
-            <div class="answer" id="answerBox">
-              <span class="label">answer:</span> <span id="answerText"></span>
-            </div>
-          </div>
+          <div class="console-body" id="consoleBody"></div>
+          <div class="console-note">illustrative trace · scores are sample values</div>
         </div>
       </div>
 
@@ -440,7 +497,7 @@
             </div>
             <div>
               <p class="hero-item-title">Full-Stack Delivery</p>
-              <p class="hero-item-desc">Flask REST APIs, 3NF MySQL/SQLite schemas, CSRF &amp; rate-limit hardened, shipped with Docker.</p>
+              <p class="hero-item-desc">Flask REST APIs, 3NF PostgreSQL/MySQL schemas, CSRF &amp; rate-limit hardened, shipped with Docker.</p>
             </div>
           </div>
           <div class="hero-item">
@@ -449,7 +506,7 @@
             </div>
             <div>
               <p class="hero-item-title">Data &amp; BI Reporting</p>
-              <p class="hero-item-desc">Power BI / DAX dashboards, Matplotlib reporting, automated eval harnesses at 98.2% pass rate.</p>
+              <p class="hero-item-desc">Power BI / DAX dashboards, Matplotlib reporting, automated eval harnesses at a 98% pass rate.</p>
             </div>
           </div>
         </div>
@@ -517,6 +574,7 @@
         </div>
         <p class="project-meta" style="margin-bottom:10px;">2026 · Lahore</p>
         <p class="project-stack">Flask-SocketIO · AssemblyAI · Gemini · ElevenLabs · FAISS · AWS EC2</p>
+        <p class="project-outcome">Live voice support agent: customers speak, it answers from the brand&#39;s own policy documents, and it hands off to a human when sources conflict or a message is sensitive.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">verveassist.live — live screenshots</span></div>
           <div class="shots-grid">
@@ -527,17 +585,21 @@
         </div>
         <div class="project-stat-row">
           <div class="project-stat"><span class="project-stat-num">real-time</span><span class="project-stat-label">voice conversation loop</span></div>
-          <div class="project-stat"><span class="project-stat-num">98%+</span><span class="project-stat-label">RAG accuracy (reused core)</span></div>
+          <div class="project-stat"><span class="project-stat-num">98%</span><span class="project-stat-label">RAG accuracy (reused core)</span></div>
           <div class="project-stat"><span class="project-stat-num">live</span><span class="project-stat-label">Shopify order lookup</span></div>
         </div>
         <ul>
           <li>Voice-enabled AI customer support agent built for the AssemblyAI Voice Agent Hackathon (lablab.ai), September 2026 — live at verveassist.live</li>
           <li>Full real-time voice loop: browser mic → AssemblyAI speech-to-text → Gemini-powered RAG pipeline → ElevenLabs text-to-speech, streamed back over WebSocket</li>
+        </ul>
+        <details class="more"><summary>4 more details</summary>
+        <ul>
           <li>Built on a production-proven RAG core (retrieval, conflict detection, order lookup, escalation logic) carried over from a prior text-based support agent, with an entirely new voice layer built for this hackathon</li>
           <li>Conflict detection caught a real contradiction sitting unnoticed in the policy knowledge base — a 24-hour vs. 1-hour cancellation window — during deployment testing</li>
           <li>Multi-turn conversation state for verification flows, e.g. collecting an order number, then a total</li>
           <li>Deployed on AWS EC2 behind nginx with Let's Encrypt SSL — HTTPS required for browser microphone access</li>
         </ul>
+        </details>
       </article>
 
       <article class="project featured reveal">
@@ -549,6 +611,7 @@
         </div>
         <p class="project-meta" style="margin-bottom:10px;">2026 · Lahore</p>
         <p class="project-stack">Flask · Gemini API · FAISS · Shopify Admin API · RAG</p>
+        <p class="project-outcome">Answers only from a brand&#39;s own policies, catches contradictions between its sources, and passes 98% of its automated evaluation cases against the live pipeline.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">verve-athletics.demo — live screenshots</span></div>
           <div class="shots-grid">
@@ -558,27 +621,33 @@
           </div>
         </div>
         <div class="project-stat-row">
-          <div class="project-stat"><span class="project-stat-num">56/57</span><span class="project-stat-label">eval cases passing</span></div>
+          <div class="project-stat"><span class="project-stat-num">58/59</span><span class="project-stat-label">eval cases passing</span></div>
           <div class="project-stat"><span class="project-stat-num">5</span><span class="project-stat-label">independent subsystems</span></div>
           <div class="project-stat"><span class="project-stat-num">live</span><span class="project-stat-label">Shopify order lookup</span></div>
         </div>
+        <details class="more"><summary>eval breakdown by category</summary>
         <div class="eval-breakdown">
           <div class="eval-row eval-head"><span>category</span><span>result</span></div>
           <div class="eval-row"><span>Policy Q&amp;A</span><span class="eval-result">24/24</span></div>
           <div class="eval-row"><span>Conflict detection</span><span class="eval-result">6/6</span></div>
           <div class="eval-row"><span>Router (order vs. policy classification)</span><span class="eval-result">10/10</span></div>
-          <div class="eval-row"><span>Sentiment/urgency detection</span><span class="eval-result">10/11</span></div>
-          <div class="eval-row"><span>Order lookup</span><span class="eval-result">6/6</span></div>
+          <div class="eval-row"><span>Sentiment/urgency detection</span><span class="eval-result">11/12</span></div>
+          <div class="eval-row"><span>Order lookup</span><span class="eval-result">7/7</span></div>
         </div>
+        </details>
         <ul>
           <li>AI customer support agent for e-commerce brands — answers only from a business's real policy documents and refuses to fill gaps with outside knowledge</li>
           <li>Built cross-document conflict detection that catches contradictions between a brand's own policy sources (e.g. official policy vs. an outdated FAQ) before a customer sees a blended, wrong-sounding answer</li>
+        </ul>
+        <details class="more"><summary>5 more details</summary>
+        <ul>
           <li>Live order status lookup against the Shopify Admin API, routed automatically from policy questions by a classifier</li>
           <li>Sentiment/urgency detection escalates angry or legal-sounding messages to a human immediately, regardless of answer confidence</li>
           <li>Every answer ships with a citation trail back to its source document and a retrieval confidence score — no black box</li>
-          <li>Ships with an admin dashboard (tickets, analytics, resolution rate) backed by a 57-case automated evaluation harness run against the live pipeline, not mocked — 98.2% passing</li>
+          <li>Ships with an admin dashboard (tickets, analytics, resolution rate) backed by a 59-case automated evaluation harness run against the live pipeline, not mocked — 98% passing</li>
           <li>Built to be dropped into any Shopify store: swap the policy docs, re-embed, connect that store's Shopify credentials — zero code changes</li>
         </ul>
+        </details>
       </article>
 
       <article class="project reveal">
@@ -587,6 +656,7 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Flask · Gemini API · FAISS · SQLite · Docker</p>
+        <p class="project-outcome">Answers questions from company documents at 96% retrieval accuracy across 28 documents, and flags cross-source contradictions instead of guessing.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">sellerdocs-ai — app screenshots</span></div>
           <div class="shots-grid">
@@ -603,9 +673,13 @@
         <ul>
           <li>Built a RAG-based Q&amp;A system answering questions from company documents and flagging cross-source contradictions</li>
           <li>Built a full retrieval pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — across 28 documents / 82 chunks</li>
+        </ul>
+        <details class="more"><summary>2 more details</summary>
+        <ul>
           <li>Built an evaluation module tracking retrieval accuracy at 96% via automated test queries</li>
           <li>Secured with CSRF protection, rate-limited login, and Gemini retry-with-backoff; containerized with Docker for one-command deployment</li>
         </ul>
+        </details>
       </article>
 
       <article class="project reveal">
@@ -614,6 +688,7 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Python (Flask REST API) · PostgreSQL · Docker · AWS EC2 · HTML/CSS/JS</p>
+        <p class="project-outcome">Multi-branch hotel platform where every booking and payment commits atomically, deployed on AWS EC2 behind Nginx with SSL.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">pearl-hotels — admin screenshots</span></div>
           <div class="shots-grid">
@@ -625,9 +700,13 @@
         <ul>
           <li>Designed a 10-table 3NF PostgreSQL schema (FKs and CHECK constraints) supporting multi-branch operations across Lahore and Islamabad</li>
           <li>Wrapped reservation + payment creation in a single atomic transaction to guarantee no partial bookings</li>
+        </ul>
+        <details class="more"><summary>2 more details</summary>
+        <ul>
           <li>Built a live dashboard for occupancy, revenue, and bookings that updates in real time</li>
           <li>Migrated the schema from MySQL to PostgreSQL, containerized with Docker, and deployed on AWS EC2 behind Nginx with SSL</li>
         </ul>
+        </details>
       </article>
 
       <article class="project reveal">
@@ -636,6 +715,7 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Python · CustomTkinter · MySQL</p>
+        <p class="project-outcome">A desktop warehouse system to scan, store, audit and report on stock, installed as a single Windows .exe with no Python setup.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">stockflow-pro.exe — app screenshots</span></div>
           <div class="shots-grid">
@@ -721,6 +801,15 @@
 <footer id="contact">
   <div class="wrap">
     <div class="sec-head reveal"><span class="sec-tag">05</span><h2>get in touch</h2></div>
+    <div class="open-banner reveal">
+      <span class="pulse" aria-hidden="true"></span>
+      <div class="ob-text">
+        <strong>Open to freelance, contract and remote work</strong>
+        <span class="ob-sub">Any online project considered &middot; AI/ML, RAG and voice agents, Python backends, data dashboards</span>
+      </div>
+      <a href="resume.pdf" class="btn primary" download>download resume &darr;</a>
+      <a href="mailto:muhammadanasehsan@gmail.com" class="btn">email me</a>
+    </div>
     <div class="contact-grid reveal">
       <div class="contact-item">
         <span class="contact-label">email</span>
@@ -767,49 +856,102 @@
 })();
 
 (function(){
-  var query = "how does conflict detection work across sources?";
-  var chunks = [
-    {src:"knowledge_assistant/conflict_detector.py", score:"0.94"},
-    {src:"knowledge_assistant/retrieval_eval.md", score:"0.88"},
-    {src:"knowledge_assistant/faiss_index.py", score:"0.81"}
+  var scenarios = [
+    {tab:"answer", say:"What is your return policy?",
+     hits:[["returns_policy",0.94],["shipping_policy",0.71],["warranty_policy",0.58]],
+     check:["ok","no conflicts across sources"], route:["ok","answer from policy"],
+     reply:"You can return items within 30 days of delivery for a full refund or exchange, provided they are unworn with tags attached."},
+    {tab:"conflict", say:"Can I cancel my order after I have placed it?",
+     hits:[["cancellation_policy",0.92],["order_faq",0.89],["shipping_policy",0.52]],
+     check:["warn","sources disagree: 24-hour vs 1-hour window"], route:["esc","escalate to a human"],
+     reply:"I found conflicting information on that, so I am bringing in a team member to confirm."},
+    {tab:"escalate", say:"I got an allergic reaction from your product. I am going to my lawyer.",
+     hits:null,
+     check:["esc","legal and health-risk language"], route:["esc","escalate to a human"],
+     reply:"I can see this is important and want to make sure it is handled properly. I am escalating this to a team member right away."}
   ];
-  var answer = "flags disagreements between retrieved sources instead of silently picking one, then surfaces both for review.";
+  var body = document.getElementById('consoleBody');
+  var tabsEl = document.getElementById('consoleTabs');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timers = [], idx = 0, auto = true;
 
-  var qEl = document.getElementById('queryText');
-  var chunksEl = document.getElementById('chunks');
-  var answerBox = document.getElementById('answerBox');
-  var answerText = document.getElementById('answerText');
-  var caret = document.getElementById('caret');
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function clearAll(){ timers.forEach(clearTimeout); timers = []; }
+  function wave(cls){ return '<span class="wave ' + (cls||'') + '"><i></i><i></i><i></i><i></i><i></i></span>'; }
 
-  var i = 0;
-  function typeQuery(){
-    if(i <= query.length){
-      qEl.textContent = query.slice(0, i);
-      i++;
-      setTimeout(typeQuery, 38);
-    } else {
-      setTimeout(showChunks, 300);
-    }
-  }
+  var tabButtons = scenarios.map(function(sc, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'console-tab'; b.textContent = sc.tab;
+    b.addEventListener('click', function(){ auto = false; play(i); });
+    tabsEl.appendChild(b);
+    return b;
+  });
 
-  function showChunks(){
-    caret.style.display = 'none';
-    chunks.forEach(function(c, idx){
-      setTimeout(function(){
-        var row = document.createElement('div');
-        row.className = 'chunk';
-        row.innerHTML = '<span class="chunk-src">' + c.src + '</span><span class="chunk-score">' + c.score + '</span>';
-        chunksEl.appendChild(row);
-        requestAnimationFrame(function(){ row.classList.add('show'); });
-      }, idx * 260);
+  function play(i){
+    clearAll(); idx = i;
+    tabButtons.forEach(function(b, k){
+      b.classList.toggle('active', k === i);
+      b.setAttribute('aria-pressed', k === i ? 'true' : 'false');
     });
-    setTimeout(function(){
-      answerText.textContent = answer;
-      answerBox.classList.add('show');
-    }, chunks.length * 260 + 300);
+    var sc = scenarios[i];
+
+    var hitsHtml = sc.hits
+      ? '<b>top-3 chunks</b> · FAISS' + sc.hits.map(function(h){
+          return '<div class="hit"><span class="hit-name">' + h[0] + '</span><span class="bar"><i data-w="' + Math.round(h[1]*100) + '"></i></span><span class="hit-score">' + h[1].toFixed(2) + '</span></div>';
+        }).join('')
+      : '<b>skipped</b> · sensitive topic detected';
+
+    body.innerHTML =
+      '<div class="say">' + wave('') + '<span class="say-text" id="sayText"></span><span class="caret" id="sayCaret"></span></div>' +
+      '<div class="stage"><span class="stage-label">stt</span><span class="stage-body"><b>transcribed</b> · AssemblyAI streaming</span></div>' +
+      '<div class="stage"><span class="stage-label">retrieve</span><span class="stage-body">' + hitsHtml + '</span></div>' +
+      '<div class="stage"><span class="stage-label">check</span><span class="stage-body"><span class="flag ' + sc.check[0] + '">' + sc.check[1] + '</span></span></div>' +
+      '<div class="stage"><span class="stage-label">route</span><span class="stage-body"><span class="flag ' + sc.route[0] + '">' + sc.route[1] + '</span></span></div>' +
+      '<div class="stage"><span class="stage-label">speak</span><span class="stage-body"><div class="reply">' + wave('teal') + '<span>' + sc.reply + '</span></div></span></div>';
+
+    var sayText = document.getElementById('sayText');
+    var sayCaret = document.getElementById('sayCaret');
+    var sayWave = body.querySelector('.say .wave');
+    var stages = body.querySelectorAll('.stage');
+    var replyWave = body.querySelector('.reply .wave');
+
+    function reveal(n){
+      stages[n].classList.add('show');
+      if(n === 1){
+        stages[n].querySelectorAll('.bar i').forEach(function(b){ b.style.width = b.getAttribute('data-w') + '%'; });
+      }
+      if(n === 4){ replyWave.classList.add('live'); }
+    }
+
+    if(reduce){
+      sayText.textContent = sc.say; sayCaret.style.display = 'none';
+      for(var k = 0; k < stages.length; k++){ reveal(k); }
+      replyWave.classList.remove('live');
+      return;
+    }
+
+    sayWave.classList.add('live');
+    var c = 0;
+    (function type(){
+      if(c <= sc.say.length){
+        sayText.textContent = sc.say.slice(0, c); c++;
+        later(type, 28);
+      } else {
+        sayCaret.style.display = 'none'; sayWave.classList.remove('live');
+        var t = 250;
+        for(var n = 0; n < stages.length; n++){
+          (function(n, t){ later(function(){ reveal(n); }, t); })(n, t);
+          t += (n === 1 ? 750 : 520);
+        }
+        later(function(){
+          if(replyWave) replyWave.classList.remove('live');
+          if(auto){ later(function(){ if(auto) play((idx + 1) % scenarios.length); }, 2600); }
+        }, t + 2200);
+      }
+    })();
   }
 
-  setTimeout(typeQuery, 500);
+  later(function(){ play(0); }, 500);
 
   var revealEls = document.querySelectorAll('.reveal');
   var obs = new IntersectionObserver(function(entries){
