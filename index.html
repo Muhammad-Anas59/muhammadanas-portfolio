@@ -384,6 +384,15 @@
   .edu-meta{font-family:var(--mono); font-size:12.5px; color:var(--text-dim);}
   .edu-course{color:var(--text-dim); font-size:14px; margin-top:8px;}
 
+  /* CERTIFICATIONS */
+  .cert-label{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin:28px 0 12px; text-transform:lowercase;}
+  .cert-list{background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden;}
+  .cert-row{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px 16px; padding:14px 24px; border-bottom:1px solid var(--border-soft);}
+  .cert-row:last-child{border-bottom:none;}
+  .cert-name{font-size:14.5px; color:var(--text); font-weight:500;}
+  .cert-name .cert-org{color:var(--teal); font-weight:400;}
+  .cert-date{font-family:var(--mono); font-size:12px; color:var(--text-dim); white-space:nowrap;}
+
   /* CONTACT / FOOTER */
   footer{padding:56px 0 40px; border-top:1px solid var(--border);}
   .contact-grid{display:flex; gap:28px; flex-wrap:wrap; margin-bottom:36px;}
@@ -408,8 +417,8 @@
     <a href="#" class="brand">Muhammad Anas</a>
     <ul class="navlinks">
       <li><a href="#projects">projects</a></li>
-      <li><a href="#experience">experience</a></li>
       <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experience</a></li>
       <li><a href="#education">education</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
@@ -431,8 +440,8 @@
     </div>
     <ul class="nav-mobile" id="navMobile">
       <li><a href="#projects">projects</a></li>
-      <li><a href="#experience">experience</a></li>
       <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experience</a></li>
       <li><a href="#education">education</a></li>
       <li><a href="#contact">contact</a></li>
       <li class="nav-mobile-socials">
@@ -518,53 +527,9 @@
   </div>
 </header>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">01</span><h2>technical stack</h2></div>
-    <div class="stack">
-      <div class="layer reveal">
-        <div class="layer-name">ai / rag</div>
-        <div class="chips">
-          <span class="chip">Gemini API</span><span class="chip">FAISS</span><span class="chip">Embeddings</span><span class="chip">LangChain splitters</span><span class="chip">Prompt design</span><span class="chip">AssemblyAI (STT)</span><span class="chip">ElevenLabs (TTS)</span><span class="chip">WebSocket audio streaming</span>
-        </div>
-      </div>
-      <div class="layer reveal">
-        <div class="layer-name">machine learning</div>
-        <div class="chips">
-          <span class="chip">Linear/Logistic Regression</span><span class="chip">Decision Trees</span><span class="chip">Random Forest</span><span class="chip">SVM</span><span class="chip">k-NN</span><span class="chip">Naive Bayes</span><span class="chip">Clustering</span><span class="chip">PCA</span>
-        </div>
-      </div>
-      <div class="layer reveal">
-        <div class="layer-name">backend / api</div>
-        <div class="chips">
-          <span class="chip">Flask</span><span class="chip">Flask-Login</span><span class="chip">Flask-WTF</span><span class="chip">Flask-Limiter</span><span class="chip">Flask-SQLAlchemy</span><span class="chip">REST design</span>
-        </div>
-      </div>
-      <div class="layer reveal">
-        <div class="layer-name">data / db</div>
-        <div class="chips">
-          <span class="chip">PostgreSQL</span><span class="chip">MySQL (3NF)</span><span class="chip">SQLite</span><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Matplotlib</span>
-        </div>
-      </div>
-      <div class="layer reveal">
-        <div class="layer-name">frontend / desktop</div>
-        <div class="chips">
-          <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Jinja2</span><span class="chip">Tailwind</span><span class="chip">CustomTkinter</span><span class="chip">ReportLab</span><span class="chip">PyInstaller</span>
-        </div>
-      </div>
-      <div class="layer reveal">
-        <div class="layer-name">security / tools</div>
-        <div class="chips">
-          <span class="chip">Parameterized queries</span><span class="chip">CSRF protection</span><span class="chip">Rate limiting</span><span class="chip">bcrypt</span><span class="chip">Git</span><span class="chip">Docker</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">02</span><h2>projects &amp; delivered systems</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">01</span><h2>projects &amp; delivered systems</h2></div>
     <div class="projects">
 
       <article class="project featured reveal">
@@ -757,6 +722,50 @@
   </div>
 </section>
 
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">02</span><h2>technical stack</h2></div>
+    <div class="stack">
+      <div class="layer reveal">
+        <div class="layer-name">ai / rag</div>
+        <div class="chips">
+          <span class="chip">Gemini API</span><span class="chip">FAISS</span><span class="chip">Embeddings</span><span class="chip">LangChain splitters</span><span class="chip">Prompt design</span><span class="chip">AssemblyAI (STT)</span><span class="chip">ElevenLabs (TTS)</span><span class="chip">WebSocket audio streaming</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">machine learning</div>
+        <div class="chips">
+          <span class="chip">Linear/Logistic Regression</span><span class="chip">Decision Trees</span><span class="chip">Random Forest</span><span class="chip">SVM</span><span class="chip">k-NN</span><span class="chip">Naive Bayes</span><span class="chip">Clustering</span><span class="chip">PCA</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">backend / api</div>
+        <div class="chips">
+          <span class="chip">Flask</span><span class="chip">Flask-Login</span><span class="chip">Flask-WTF</span><span class="chip">Flask-Limiter</span><span class="chip">Flask-SQLAlchemy</span><span class="chip">REST design</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">data / db</div>
+        <div class="chips">
+          <span class="chip">PostgreSQL</span><span class="chip">MySQL (3NF)</span><span class="chip">SQLite</span><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Matplotlib</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">frontend / desktop</div>
+        <div class="chips">
+          <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Jinja2</span><span class="chip">Tailwind</span><span class="chip">CustomTkinter</span><span class="chip">ReportLab</span><span class="chip">PyInstaller</span>
+        </div>
+      </div>
+      <div class="layer reveal">
+        <div class="layer-name">security / tools</div>
+        <div class="chips">
+          <span class="chip">Parameterized queries</span><span class="chip">CSRF protection</span><span class="chip">Rate limiting</span><span class="chip">bcrypt</span><span class="chip">Git</span><span class="chip">Docker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="wrap">
     <div class="sec-head reveal"><span class="sec-tag">03</span><h2>experience</h2></div>
@@ -787,13 +796,19 @@
 
 <section id="education">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>education</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>education &amp; certifications</h2></div>
     <div class="edu-card reveal">
       <div>
         <div class="edu-school">BS Data Science — University of Management &amp; Technology (UMT), Lahore</div>
         <div class="edu-course">Machine Learning · Data Analysis (Power BI) · Statistics · Database Management · Python Programming</div>
       </div>
       <div class="edu-meta">2024 – present</div>
+    </div>
+    <div class="cert-label reveal">certifications</div>
+    <div class="cert-list reveal">
+      <div class="cert-row"><span class="cert-name">Artificial Intelligence using Python — <span class="cert-org">DigiSkills.pk</span></span><span class="cert-date">Jul 2026</span></div>
+      <div class="cert-row"><span class="cert-name">Data Analytics and Business Intelligence — <span class="cert-org">DigiSkills.pk</span></span><span class="cert-date">Mar 2026</span></div>
+      <div class="cert-row"><span class="cert-name">Data Science &amp; Analytics — <span class="cert-org">HP LIFE</span></span><span class="cert-date">Aug 2025</span></div>
     </div>
   </div>
 </section>
