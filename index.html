@@ -620,6 +620,39 @@
 
       <article class="project reveal">
         <div class="project-head">
+          <span class="project-path">~/projects/loanlytics</span>
+          <span class="project-meta">2026 · Lahore</span>
+        </div>
+        <p class="project-stack">Python · XGBoost · scikit-learn · SHAP · Optuna · Streamlit</p>
+        <p class="project-outcome">Credit default risk predictor: enter a borrower&#39;s profile and get a 0&ndash;100 risk score with the top factors that raised or lowered it, from an XGBoost model at 0.865 cross-validated ROC-AUC.</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">loanlytics — app and model screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/loanlytics-high-risk.png" target="_blank" rel="noopener"><img src="project-images/loanlytics-high-risk.png" alt="Loanlytics app showing a high-risk borrower with a risk score of 91 and the top factors raising risk" loading="lazy"></a>
+            <a href="project-images/loanlytics-low-risk.png" target="_blank" rel="noopener"><img src="project-images/loanlytics-low-risk.png" alt="Loanlytics app showing a low-risk borrower with a risk score of 23 and the factors lowering risk" loading="lazy"></a>
+            <a href="project-images/loanlytics-shap.png" target="_blank" rel="noopener"><img src="project-images/loanlytics-shap.png" alt="SHAP summary plot of feature impact on the model output" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="project-stat-row">
+          <div class="project-stat"><span class="project-stat-num">150K</span><span class="project-stat-label">borrowers trained on</span></div>
+          <div class="project-stat"><span class="project-stat-num">0.865</span><span class="project-stat-label">cross-validated ROC-AUC</span></div>
+          <div class="project-stat"><span class="project-stat-num">3</span><span class="project-stat-label">models benchmarked</span></div>
+        </div>
+        <ul>
+          <li>Trained on the public Give Me Some Credit dataset (150,000 borrowers, about 6.7% defaults), handling the class imbalance with class weighting and judging models on ROC-AUC, PR-AUC, recall and precision rather than accuracy</li>
+          <li>Benchmarked logistic regression, random forest and XGBoost with 5-fold stratified cross-validation; XGBoost scored best at 0.864 ROC-AUC (vs 0.855 and 0.816), then reached 0.865 after Optuna tuning</li>
+        </ul>
+        <details class="more"><summary>3 more details</summary>
+        <ul>
+          <li>Cleaned the data: median-imputed missing income with a missing-income flag, capped extreme outliers, and used a stratified 80/20 train/test split</li>
+          <li>Engineered features such as late-payment &times; utilization, total late payments and income per person; SHAP ranks utilization and late-payment features as the strongest drivers</li>
+          <li>Interactive app with profile sliders, a risk gauge with a decision-threshold marker, and the top 5 factors behind each score shown as raises or lowers risk</li>
+        </ul>
+        </details>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-head">
           <span class="project-path">~/projects/ai-knowledge-assistant</span>
           <span class="project-meta">2026 · Lahore</span>
         </div>
@@ -735,7 +768,7 @@
       <div class="layer reveal">
         <div class="layer-name">machine learning</div>
         <div class="chips">
-          <span class="chip">Linear/Logistic Regression</span><span class="chip">Decision Trees</span><span class="chip">Random Forest</span><span class="chip">SVM</span><span class="chip">k-NN</span><span class="chip">Naive Bayes</span><span class="chip">Clustering</span><span class="chip">PCA</span>
+          <span class="chip">Linear/Logistic Regression</span><span class="chip">Decision Trees</span><span class="chip">Random Forest</span><span class="chip">SVM</span><span class="chip">k-NN</span><span class="chip">Naive Bayes</span><span class="chip">Clustering</span><span class="chip">PCA</span><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">Optuna</span>
         </div>
       </div>
       <div class="layer reveal">
@@ -753,7 +786,7 @@
       <div class="layer reveal">
         <div class="layer-name">frontend / desktop</div>
         <div class="chips">
-          <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Jinja2</span><span class="chip">Tailwind</span><span class="chip">CustomTkinter</span><span class="chip">ReportLab</span><span class="chip">PyInstaller</span>
+          <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Jinja2</span><span class="chip">Tailwind</span><span class="chip">CustomTkinter</span><span class="chip">ReportLab</span><span class="chip">PyInstaller</span><span class="chip">Streamlit</span>
         </div>
       </div>
       <div class="layer reveal">
