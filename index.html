@@ -355,8 +355,11 @@
     filter:saturate(0.92);
   }
   .shots-grid a:hover img{transform:scale(1.06); filter:saturate(1.05);}
+  .shots-grid.two{grid-template-columns:repeat(2,1fr);}
+  .shots-grid.two img{height:190px;}
   @media (max-width:640px){
     .shots-grid img{height:110px;}
+    .shots-grid.two img{height:130px;}
   }
 
   /* EXPERIENCE */
@@ -667,7 +670,7 @@
         </div>
         <div class="project-stat-row">
           <div class="project-stat"><span class="project-stat-num">28</span><span class="project-stat-label">documents indexed</span></div>
-          <div class="project-stat"><span class="project-stat-num">82</span><span class="project-stat-label">chunks retrieved</span></div>
+          <div class="project-stat"><span class="project-stat-num">82</span><span class="project-stat-label">chunks indexed</span></div>
           <div class="project-stat"><span class="project-stat-num">96%</span><span class="project-stat-label">retrieval accuracy</span></div>
         </div>
         <ul>
@@ -737,19 +740,16 @@
           <span class="project-meta">2025–present · Lahore</span>
         </div>
         <p class="project-stack">Power BI · DAX</p>
+        <p class="project-outcome">Interactive sales dashboards that turn raw order spreadsheets into KPI cards, trends and breakdowns a stakeholder can filter by quarter, state or category.</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">power-bi — dashboard screenshots</span></div>
+          <div class="shots-grid two">
+            <a href="project-images/powerbi-sales-performance.png" target="_blank" rel="noopener"><img src="project-images/powerbi-sales-performance.png" alt="Sales Performance dashboard with KPI cards, monthly trend and category, state and sub-category breakdowns" loading="lazy"></a>
+            <a href="project-images/powerbi-ecommerce-dashboard.png" target="_blank" rel="noopener"><img src="project-images/powerbi-ecommerce-dashboard.png" alt="Ecommerce Sales dashboard with quarter and state slicers, profit by month and payment-method breakdown" loading="lazy"></a>
+          </div>
+        </div>
         <ul>
           <li>Built DAX-driven dashboards with KPI cards, slicers, drill-throughs, and time-intelligence measures, turning raw spreadsheets into stakeholder-ready reporting</li>
-        </ul>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-head">
-          <span class="project-path">~/projects/smart-parking-allocator</span>
-          <span class="project-meta">2025 · Lahore</span>
-        </div>
-        <p class="project-stack">C++</p>
-        <ul>
-          <li>Console-based, OOP-structured allocator for real-time slot allocation and availability tracking</li>
         </ul>
       </article>
 
@@ -829,7 +829,7 @@
       </div>
       <div class="contact-item">
         <span class="contact-label">linkedin</span>
-        <span class="contact-value"><a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" target="_blank" rel="noopener">linkedin.com/in/muhammad-anas</a></span>
+        <span class="contact-value"><a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" target="_blank" rel="noopener">linkedin.com/in/muhammad-anas-a6bb5b2b3</a></span>
       </div>
     </div>
     <div class="foot-bottom">© 2026 Muhammad Anas. Built with HTML, CSS, and no framework.</div>
