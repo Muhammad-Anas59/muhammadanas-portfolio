@@ -12,19 +12,19 @@ Built with plain HTML, CSS and JavaScript: no framework and no build step. The h
 |---|---|---|
 | **Verve Voice Agent** ([live](https://verveassist.live) · [repo](https://github.com/Muhammad-Anas59/Voice-Customer-Support-Agent)) | Real-time voice support agent built for the AssemblyAI Voice Agent Hackathon. Answers from a brand's own policy documents and hands off to a human when sources conflict or a message is sensitive. | Flask-SocketIO, AssemblyAI, Gemini, ElevenLabs, FAISS, AWS EC2 |
 | **AI Support Agent** ([repo](https://github.com/Muhammad-Anas59/AI-Support-Agent)) | Shopify-integrated support agent with conflict detection, live order lookup, sentiment escalation and an admin dashboard, validated by an automated evaluation harness. | Flask, Gemini API, FAISS, Shopify Admin API |
-| **Loanlytics** | Credit default risk predictor: XGBoost model (0.865 cross-validated ROC-AUC on 150,000 borrowers) with SHAP-based explanations and an interactive risk-score app. | Python, XGBoost, scikit-learn, SHAP, Optuna, Streamlit |
+| **Loanlytics** ([live](https://loanlytics.streamlit.app) · [repo](https://github.com/Muhammad-Anas59/Loanlytics)) | Credit default risk predictor built during the Big Brains internship: XGBoost model (0.864 cross-validated ROC-AUC on 150,000 borrowers) with SHAP-based explanations and an interactive risk-score app. | Python, XGBoost, scikit-learn, SHAP, Optuna, Streamlit |
 | **AI Knowledge Assistant** | Multi-knowledge-base RAG assistant that answers from company documents and flags cross-source contradictions. | Flask, Gemini API, FAISS, SQLite, Docker |
 | **Hotel Reservation System** | Multi-branch hotel platform where every booking and payment commits atomically. | Flask REST API, PostgreSQL, Docker, AWS EC2, Nginx |
 | **StockFlow Pro** | Desktop warehouse system with barcode-level tracking and PDF reporting, shipped as a single Windows `.exe`. | Python, CustomTkinter, MySQL |
 | **Power BI Dashboards** | Interactive sales dashboards with KPI cards, slicers and breakdowns. | Power BI, DAX |
 
-The site also covers experience (Decode Labs AI internship, BCG X data science simulation), a technical stack overview, education (BS Data Science, UMT Lahore) and certifications.
+The site also covers experience (Big Brains AI/ML internship, Decode Labs AI internship, BCG X data science simulation), a technical stack overview, education (BS Data Science, UMT Lahore) and certifications, including the Big Brains internship certificate.
 
 ## Repository structure
 
 ```
 index.html          # the whole site: markup, styles and the hero animation script
-project-images/     # screenshots shown in each project's gallery
+project-images/     # screenshots shown in each project's gallery, plus the Big Brains certificate
 README.md
 ```
 

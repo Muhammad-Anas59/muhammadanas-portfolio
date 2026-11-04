@@ -624,7 +624,8 @@
           <span class="project-meta">2026 · Lahore</span>
         </div>
         <p class="project-stack">Python · XGBoost · scikit-learn · SHAP · Optuna · Streamlit</p>
-        <p class="project-outcome">Credit default risk predictor: enter a borrower&#39;s profile and get a 0&ndash;100 risk score with the top factors that raised or lowered it, from an XGBoost model at 0.865 cross-validated ROC-AUC.</p>
+        <p style="margin:0 0 10px;"><a href="https://loanlytics.streamlit.app" class="project-link" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/Muhammad-Anas59/Loanlytics" class="project-link" target="_blank" rel="noopener" style="margin-left:12px;">repo ↗</a></p>
+        <p class="project-outcome">Credit default risk predictor: enter a borrower&#39;s profile and get a 0&ndash;100 risk score with the top factors that raised or lowered it, from an XGBoost model at 0.864 cross-validated ROC-AUC. Built during my Big Brains AI/ML internship.</p>
         <div class="shots">
           <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">loanlytics — app and model screenshots</span></div>
           <div class="shots-grid">
@@ -635,15 +636,16 @@
         </div>
         <div class="project-stat-row">
           <div class="project-stat"><span class="project-stat-num">150K</span><span class="project-stat-label">borrowers trained on</span></div>
-          <div class="project-stat"><span class="project-stat-num">0.865</span><span class="project-stat-label">cross-validated ROC-AUC</span></div>
+          <div class="project-stat"><span class="project-stat-num">0.864</span><span class="project-stat-label">cross-validated ROC-AUC</span></div>
           <div class="project-stat"><span class="project-stat-num">3</span><span class="project-stat-label">models benchmarked</span></div>
         </div>
         <ul>
           <li>Trained on the public Give Me Some Credit dataset (150,000 borrowers, about 6.7% defaults), handling the class imbalance with class weighting and judging models on ROC-AUC, PR-AUC, recall and precision rather than accuracy</li>
-          <li>Benchmarked logistic regression, random forest and XGBoost with 5-fold stratified cross-validation; XGBoost scored best at 0.864 ROC-AUC (vs 0.855 and 0.816), then reached 0.865 after Optuna tuning</li>
+          <li>Benchmarked logistic regression, random forest and XGBoost with 5-fold stratified cross-validation; XGBoost scored best at 0.864 ROC-AUC (vs 0.853 and 0.819), and held at 0.870 ROC-AUC on a 30,000-row held-out test set; Optuna tuning gave only marginal gains</li>
         </ul>
-        <details class="more"><summary>3 more details</summary>
+        <details class="more"><summary>4 more details</summary>
         <ul>
+          <li>Chose the decision threshold on out-of-fold training predictions rather than the test set to avoid leakage, and documented the limits: 41% precision makes it a screening tool, not an automated decision-maker</li>
           <li>Cleaned the data: median-imputed missing income with a missing-income flag, capped extreme outliers, and used a stratified 80/20 train/test split</li>
           <li>Engineered features such as late-payment &times; utilization, total late payments and income per person; SHAP ranks utilization and late-payment features as the strongest drivers</li>
           <li>Interactive app with profile sliders, a risk gauge with a decision-threshold marker, and the top 5 factors behind each score shown as raises or lowers risk</li>
@@ -804,6 +806,18 @@
     <div class="sec-head reveal"><span class="sec-tag">03</span><h2>experience</h2></div>
     <div class="exp-card reveal">
       <div class="exp-head">
+        <span class="exp-role">AI &amp; Machine Learning Intern — <span class="exp-company">Big Brains</span></span>
+        <span class="exp-meta">Sep – Oct 2026</span>
+      </div>
+      <ul>
+        <li>Built Loanlytics, an end-to-end credit default risk predictor trained on 150,000 borrowers with a 6.7% default rate, reaching 0.864 cross-validated ROC-AUC (0.870 on a held-out test set)</li>
+        <li>Benchmarked logistic regression, random forest and XGBoost with 5-fold cross-validation, tuned XGBoost with Optuna, and set the decision threshold on out-of-fold predictions to avoid test-set leakage</li>
+        <li>Explained predictions with SHAP and shipped a <a href="https://loanlytics.streamlit.app" class="project-link" target="_blank" rel="noopener">live Streamlit app ↗</a> that returns a risk score and the top factors behind it</li>
+        <li>Completed the program with a 99% average score and a verified certificate</li>
+      </ul>
+    </div>
+    <div class="exp-card reveal" style="margin-top:16px;">
+      <div class="exp-head">
         <span class="exp-role">AI Intern — <span class="exp-company">Decode Labs</span> (Remote)</span>
         <span class="exp-meta">2026</span>
       </div>
@@ -839,6 +853,7 @@
     </div>
     <div class="cert-label reveal">certifications</div>
     <div class="cert-list reveal">
+      <div class="cert-row"><span class="cert-name"><a href="project-images/bigbrains-certificate.jpg" target="_blank" rel="noopener">AI &amp; Machine Learning Internship (99% avg score)</a> — <span class="cert-org">Big Brains</span></span><span class="cert-date">Oct 2026</span></div>
       <div class="cert-row"><span class="cert-name">Artificial Intelligence using Python — <span class="cert-org">DigiSkills.pk</span></span><span class="cert-date">Jul 2026</span></div>
       <div class="cert-row"><span class="cert-name">Data Analytics and Business Intelligence — <span class="cert-org">DigiSkills.pk</span></span><span class="cert-date">Mar 2026</span></div>
       <div class="cert-row"><span class="cert-name">Data Science &amp; Analytics — <span class="cert-org">HP LIFE</span></span><span class="cert-date">Aug 2025</span></div>
