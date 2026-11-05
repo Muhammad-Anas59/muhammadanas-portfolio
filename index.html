@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Anas — AI/ML Engineer & Python Developer</title>
-<meta name="description" content="Muhammad Anas — AI/ML Engineer & Python Developer building voice AI agents, RAG pipelines, full-stack apps, and data systems.">
+<title>Muhammad Anas — AI Voice & Chat Agents for Businesses</title>
+<meta name="description" content="AI voice and chat agents for businesses: they answer customers from your own policies, look up orders, and hand off to a human when it matters. Built by Muhammad Anas.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muhammad Anas — AI/ML Engineer & Python Developer">
 <meta property="og:description" content="AI/ML Engineer who ships full, working systems — voice AI agents, RAG pipelines, full-stack apps, and data/BI reporting.">
@@ -406,6 +406,39 @@
     border-top:1px solid var(--border); padding-top:20px;
   }
 
+
+  .hero h1{font-size:clamp(28px,4.6vw,44px); line-height:1.12;}
+  .hero-sub{max-width:600px; color:var(--text-dim); font-size:16.5px; margin:0 0 28px;}
+  .hero .hero-actions{margin-bottom:18px;}
+  .trust-line{font-family:var(--mono); font-size:12.5px; color:var(--text-dim); margin:0 0 48px;}
+  .trust-line a{color:var(--teal); text-decoration:none;} .trust-line a:hover{text-decoration:underline;}
+  .trust-line .sep{color:var(--text-faint); margin:0 8px;}
+  .demo-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .demo-frame iframe{display:block; width:100%; aspect-ratio:16/9; border:0; background:#000;}
+  .demo-frame{ border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--surface);}
+  .demo-frame video{display:block; width:100%; height:auto; background:#000;}
+  .demo-cap{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin:12px 0 0;}
+  .build-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .build-card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px;}
+  .build-card h3{font-family:var(--mono); font-size:15px; margin:0 0 10px; color:var(--text);}
+  .build-card p{margin:0; color:var(--text-dim); font-size:14.5px;}
+  .build-card .bc-tag{font-family:var(--mono); font-size:11.5px; color:var(--amber); margin-bottom:12px; display:block;}
+  .sub-head{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin:28px 0 4px; text-transform:lowercase;}
+  .clients-box{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:24px; max-width:760px;}
+  .clients-box p{margin:0 0 14px; color:var(--text-dim); font-size:15px;}
+  .chips{display:flex; gap:10px; flex-wrap:wrap;}
+  .chip{font-family:var(--mono); font-size:12.5px; color:var(--teal); border:1px solid var(--teal-dim); border-radius:999px; padding:5px 14px;}
+  .offer{background:var(--surface); border:1px solid var(--amber-dim); border-radius:10px; padding:26px; margin:0 0 28px;}
+  .offer h3{font-family:var(--mono); font-size:17px; margin:0 0 8px; color:var(--amber);}
+  .offer p{margin:0 0 18px; color:var(--text-dim); font-size:15px; max-width:620px;}
+  .offer-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:22px;}
+  .cform{display:grid; gap:12px; max-width:560px;}
+  .cform input,.cform textarea{width:100%; box-sizing:border-box; background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:11px 12px; font:inherit; font-size:14.5px;}
+  .cform input:focus,.cform textarea:focus{outline:none; border-color:var(--amber);}
+  .cform .hp{position:absolute; left:-9999px; height:0; overflow:hidden;}
+  .cform button{justify-self:start; cursor:pointer;}
+  @media (max-width:780px){ .build-grid,.demo-grid{grid-template-columns:1fr;} }
+
   .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 </style>
@@ -460,17 +493,18 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="eyebrow">Lahore, Pakistan</div>
-        <h1>Muhammad <span>Anas</span></h1>
-        <p class="role-line">Python Developer · AI/ML Engineer</p>
-        <p class="hero-desc">AI/ML Engineer who ships full, working systems rather than isolated scripts — from a real-time voice AI support agent that listens, reasons over a business's own policy documents, and speaks back, to full-stack apps spanning schema design, REST APIs, desktop software, and BI reporting.</p>
+        <div class="eyebrow">Muhammad Anas · Lahore, Pakistan · 6+ months experience</div>
+        <h1>AI <span>Voice &amp; Chat Agents</span> for Businesses</h1>
+        <p class="hero-sub">I build agents that answer your customers, look up orders, and hand off to a human when it matters. Live demos below.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn primary">view projects</a>
+          <a href="#demo" class="btn primary">Watch the demos</a>
           <a href="resume.pdf" class="btn" download>resume ↓</a>
-          <a href="#contact" class="btn">get in touch</a>
+          <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20to%20book%20a%20free%2015-min%20call" class="btn" target="_blank" rel="noopener">Book a free 15-min call</a>
           <a href="https://github.com/Muhammad-Anas59" class="btn icon" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.61.69.5A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
           <a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" class="btn icon" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
         </div>
+
+        <p class="trust-line">Live at <a href="https://verveassist.live" target="_blank" rel="noopener">verveassist.live</a><span class="sep">·</span>98% pass rate on 59 automated tests</p>
 
         <div class="console" role="group" aria-label="Interactive demo of the voice support agent pipeline">
           <div class="console-bar">
@@ -527,11 +561,37 @@
   </div>
 </header>
 
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">01</span><h2>live demos</h2></div>
+    <div class="demo-grid">
+      <div class="reveal">
+        <div class="demo-frame"><iframe src="https://drive.google.com/file/d/1AuK17wZdJd5i9_M6kQhCHFeaL_atNnQ1/preview" title="Verve voice agent demo video" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="demo-cap">Verve voice agent: answers from policy documents by voice and hands off to a human.</p>
+      </div>
+      <div class="reveal">
+        <div class="demo-frame"><iframe src="https://drive.google.com/file/d/1_wz7hCreKtcfquoPExs_bxkXAcI1ElzS/preview" title="AI support agent demo video" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <p class="demo-cap">AI support agent: catches policy conflicts, looks up orders and escalates sensitive cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">02</span><h2>what I build for you</h2></div>
+    <div class="build-grid">
+      <div class="build-card reveal"><span class="bc-tag">01 · answers</span><h3>Instant answers from your own content</h3><p>Customers get accurate replies drawn from your policies and FAQs, and the agent flags it when your documents contradict each other instead of guessing.</p></div>
+      <div class="build-card reveal"><span class="bc-tag">02 · calls &amp; chats</span><h3>Handles calls and chats, then looks up orders</h3><p>Voice and chat agents that talk to customers in real time and check live order status in your store, so your team isn&#39;t repeating the same lookups.</p></div>
+      <div class="build-card reveal"><span class="bc-tag">03 · escalation</span><h3>Escalates angry or sensitive cases to a human</h3><p>Frustrated customers and legal-sounding complaints go straight to your team with context, rather than getting a robotic reply.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">01</span><h2>projects &amp; delivered systems</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">03</span><h2>projects &amp; delivered systems</h2></div>
     <div class="projects">
-
       <article class="project featured reveal">
         <div class="project-head">
           <div class="project-top">
@@ -620,6 +680,40 @@
 
       <article class="project reveal">
         <div class="project-head">
+          <span class="project-path">~/projects/ai-knowledge-assistant</span>
+          <span class="project-meta">2026 · Lahore</span>
+        </div>
+        <p class="project-stack">Flask · Gemini API · FAISS · SQLite · Docker</p>
+        <p class="project-outcome">Answers questions from company documents at 96% retrieval accuracy across 28 documents, and flags cross-source contradictions instead of guessing.</p>
+        <div class="shots">
+          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">sellerdocs-ai — app screenshots</span></div>
+          <div class="shots-grid">
+            <a href="project-images/knowledge-assistant-chat.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-chat.png" alt="Chat interface answering a question with a flagged document conflict" loading="lazy"></a>
+            <a href="project-images/knowledge-assistant-kb.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-kb.png" alt="Knowledge bases list for organizing documents by topic" loading="lazy"></a>
+            <a href="project-images/knowledge-assistant-eval.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-eval.png" alt="Evaluation screen for tracking retrieval accuracy over time" loading="lazy"></a>
+          </div>
+        </div>
+        <div class="project-stat-row">
+          <div class="project-stat"><span class="project-stat-num">28</span><span class="project-stat-label">documents indexed</span></div>
+          <div class="project-stat"><span class="project-stat-num">82</span><span class="project-stat-label">chunks indexed</span></div>
+          <div class="project-stat"><span class="project-stat-num">96%</span><span class="project-stat-label">retrieval accuracy</span></div>
+        </div>
+        <ul>
+          <li>Built a RAG-based Q&amp;A system answering questions from company documents and flagging cross-source contradictions</li>
+          <li>Built a full retrieval pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — across 28 documents / 82 chunks</li>
+        </ul>
+        <details class="more"><summary>2 more details</summary>
+        <ul>
+          <li>Built an evaluation module tracking retrieval accuracy at 96% via automated test queries</li>
+          <li>Secured with CSRF protection, rate-limited login, and Gemini retry-with-backoff; containerized with Docker for one-command deployment</li>
+        </ul>
+        </details>
+      </article>
+
+      <div class="sub-head reveal">other work</div>
+
+      <article class="project reveal">
+        <div class="project-head">
           <span class="project-path">~/projects/loanlytics</span>
           <span class="project-meta">2026 · Lahore</span>
         </div>
@@ -649,38 +743,6 @@
           <li>Cleaned the data: median-imputed missing income with a missing-income flag, capped extreme outliers, and used a stratified 80/20 train/test split</li>
           <li>Engineered features such as late-payment &times; utilization, total late payments and income per person; SHAP ranks utilization and late-payment features as the strongest drivers</li>
           <li>Interactive app with profile sliders, a risk gauge with a decision-threshold marker, and the top 5 factors behind each score shown as raises or lowers risk</li>
-        </ul>
-        </details>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-head">
-          <span class="project-path">~/projects/ai-knowledge-assistant</span>
-          <span class="project-meta">2026 · Lahore</span>
-        </div>
-        <p class="project-stack">Flask · Gemini API · FAISS · SQLite · Docker</p>
-        <p class="project-outcome">Answers questions from company documents at 96% retrieval accuracy across 28 documents, and flags cross-source contradictions instead of guessing.</p>
-        <div class="shots">
-          <div class="shots-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="shots-bar-title">sellerdocs-ai — app screenshots</span></div>
-          <div class="shots-grid">
-            <a href="project-images/knowledge-assistant-chat.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-chat.png" alt="Chat interface answering a question with a flagged document conflict" loading="lazy"></a>
-            <a href="project-images/knowledge-assistant-kb.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-kb.png" alt="Knowledge bases list for organizing documents by topic" loading="lazy"></a>
-            <a href="project-images/knowledge-assistant-eval.png" target="_blank" rel="noopener"><img src="project-images/knowledge-assistant-eval.png" alt="Evaluation screen for tracking retrieval accuracy over time" loading="lazy"></a>
-          </div>
-        </div>
-        <div class="project-stat-row">
-          <div class="project-stat"><span class="project-stat-num">28</span><span class="project-stat-label">documents indexed</span></div>
-          <div class="project-stat"><span class="project-stat-num">82</span><span class="project-stat-label">chunks indexed</span></div>
-          <div class="project-stat"><span class="project-stat-num">96%</span><span class="project-stat-label">retrieval accuracy</span></div>
-        </div>
-        <ul>
-          <li>Built a RAG-based Q&amp;A system answering questions from company documents and flagging cross-source contradictions</li>
-          <li>Built a full retrieval pipeline — chunking, Gemini embeddings, per-knowledge-base FAISS indexing — across 28 documents / 82 chunks</li>
-        </ul>
-        <details class="more"><summary>2 more details</summary>
-        <ul>
-          <li>Built an evaluation module tracking retrieval accuracy at 96% via automated test queries</li>
-          <li>Secured with CSRF protection, rate-limited login, and Gemini retry-with-backoff; containerized with Docker for one-command deployment</li>
         </ul>
         </details>
       </article>
@@ -757,9 +819,19 @@
   </div>
 </section>
 
+<section id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>who I&#39;ve worked with</h2></div>
+    <div class="clients-box reveal">
+      <p>I&#39;ve worked remotely with clients in Australia and Canada, building AI and data solutions across time zones, with clear communication and working software delivered rather than slide decks. That adds up to 6+ months of hands-on experience shipping real systems.</p>
+      <div class="chips"><span class="chip">Australia</span><span class="chip">Canada</span><span class="chip">Remote-first</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="skills">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">02</span><h2>technical stack</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">05</span><h2>technical stack</h2></div>
     <div class="stack">
       <div class="layer reveal">
         <div class="layer-name">ai / rag</div>
@@ -803,7 +875,7 @@
 
 <section id="experience">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">03</span><h2>experience</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">06</span><h2>experience</h2></div>
     <div class="exp-card reveal">
       <div class="exp-head">
         <span class="exp-role">AI &amp; Machine Learning Intern — <span class="exp-company">Big Brains</span></span>
@@ -843,7 +915,7 @@
 
 <section id="education">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>education &amp; certifications</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">07</span><h2>education &amp; certifications</h2></div>
     <div class="edu-card reveal">
       <div>
         <div class="edu-school">BS Data Science — University of Management &amp; Technology (UMT), Lahore</div>
@@ -863,7 +935,7 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">05</span><h2>get in touch</h2></div>
+    <div class="sec-head reveal"><span class="sec-tag">08</span><h2>get in touch</h2></div>
     <div class="open-banner reveal">
       <span class="pulse" aria-hidden="true"></span>
       <div class="ob-text">
@@ -873,13 +945,21 @@
       <a href="resume.pdf" class="btn primary" download>download resume &darr;</a>
       <a href="mailto:muhammadanasehsan@gmail.com" class="btn">email me</a>
     </div>
+    <div class="offer reveal">
+      <h3>I&#39;ll build a free working demo on your FAQs</h3>
+      <p>Send me your FAQs or policy documents on WhatsApp or email and I&#39;ll turn them into a working chat agent you can try, at no cost and with no obligation.</p>
+      <div class="offer-actions">
+        <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20to%20book%20a%20free%2015-min%20call" class="btn primary" target="_blank" rel="noopener">Book a free 15-min call</a>
+        <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20a%20free%20demo%20on%20my%20FAQs" class="btn" target="_blank" rel="noopener">Request my free demo</a>
+      </div>
+    </div>
     <div class="contact-grid reveal">
       <div class="contact-item">
         <span class="contact-label">email</span>
         <span class="contact-value"><a href="mailto:muhammadanasehsan@gmail.com">muhammadanasehsan@gmail.com</a></span>
       </div>
       <div class="contact-item">
-        <span class="contact-label">phone</span>
+        <span class="contact-label">phone / whatsapp</span>
         <span class="contact-value">0319-4794080</span>
       </div>
       <div class="contact-item">
