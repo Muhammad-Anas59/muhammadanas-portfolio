@@ -1,6 +1,6 @@
 # Muhammad Anas — Portfolio
 
-Portfolio of Muhammad Anas, who builds AI voice and chat agents for businesses. Python developer and AI/ML engineer based in Lahore, Pakistan, with 6+ months of experience and remote clients in Australia and Canada. It focuses on RAG pipelines, voice AI agents, full-stack applications and BI reporting.
+Portfolio of Muhammad Anas, who builds AI voice and chat agents for businesses. Python developer and AI/ML engineer based in Lahore, Pakistan, with 1 year of experience and remote clients in Australia and Canada. It focuses on RAG pipelines, voice AI agents, full-stack applications and BI reporting.
 
 **Live site:** [muhammadanas-portfolio-lime.vercel.app](https://muhammadanas-portfolio-lime.vercel.app)
 

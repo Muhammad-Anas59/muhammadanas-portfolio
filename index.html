@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Anas — AI Voice & Chat Agents for Businesses</title>
+<title>Muhammad Anas — AI Engineer</title>
 <meta name="description" content="AI voice and chat agents for businesses: they answer customers from your own policies, look up orders, and hand off to a human when it matters. Built by Muhammad Anas.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muhammad Anas — AI/ML Engineer & Python Developer">
@@ -424,10 +424,19 @@
   .build-card p{margin:0; color:var(--text-dim); font-size:14.5px;}
   .build-card .bc-tag{font-family:var(--mono); font-size:11.5px; color:var(--amber); margin-bottom:12px; display:block;}
   .sub-head{font-family:var(--mono); font-size:12px; color:var(--text-faint); margin:28px 0 4px; text-transform:lowercase;}
-  .clients-box{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:24px; max-width:760px;}
-  .clients-box p{margin:0 0 14px; color:var(--text-dim); font-size:15px;}
-  .chips{display:flex; gap:10px; flex-wrap:wrap;}
-  .chip{font-family:var(--mono); font-size:12.5px; color:var(--teal); border:1px solid var(--teal-dim); border-radius:999px; padding:5px 14px;}
+  .intl-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .intl-card{display:flex; align-items:center; gap:18px; background:linear-gradient(135deg,var(--surface),var(--surface-2)); border:1px solid var(--border); border-radius:12px; padding:22px 24px; transition:border-color .2s, transform .2s;}
+  .intl-card:hover{border-color:var(--amber-dim); transform:translateY(-2px);}
+  .intl-code{font-family:var(--mono); font-weight:700; font-size:20px; color:var(--amber); border:1px solid var(--amber-dim); border-radius:10px; width:56px; height:56px; display:flex; align-items:center; justify-content:center; flex-shrink:0; letter-spacing:.04em;}
+  .intl-name{font-family:var(--mono); font-size:19px; font-weight:600; color:var(--text); margin:0 0 4px;}
+  .intl-sub{margin:0; font-size:13.5px; color:var(--text-dim);}
+  .intl-points{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .intl-point{border-top:2px solid var(--teal-dim); padding:14px 4px 0;}
+  .intl-point h3{font-family:var(--mono); font-size:13.5px; color:var(--teal); margin:0 0 6px;}
+  .intl-point p{margin:0; font-size:14px; color:var(--text-dim);}
+  .exp-summary{display:flex; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px 24px; margin-bottom:20px;}
+  .exp-summary .big{font-family:var(--mono); font-weight:700; font-size:30px; color:var(--amber); line-height:1;}
+  .exp-summary .lbl{font-size:14.5px; color:var(--text-dim);}
   .offer{background:var(--surface); border:1px solid var(--amber-dim); border-radius:10px; padding:26px; margin:0 0 28px;}
   .offer h3{font-family:var(--mono); font-size:17px; margin:0 0 8px; color:var(--amber);}
   .offer p{margin:0 0 18px; color:var(--text-dim); font-size:15px; max-width:620px;}
@@ -437,7 +446,7 @@
   .cform input:focus,.cform textarea:focus{outline:none; border-color:var(--amber);}
   .cform .hp{position:absolute; left:-9999px; height:0; overflow:hidden;}
   .cform button{justify-self:start; cursor:pointer;}
-  @media (max-width:780px){ .build-grid,.demo-grid{grid-template-columns:1fr;} }
+  @media (max-width:780px){ .build-grid,.demo-grid,.intl-grid,.intl-points{grid-template-columns:1fr;} }
 
   .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -493,13 +502,12 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="eyebrow">Muhammad Anas · Lahore, Pakistan · 6+ months experience</div>
-        <h1>AI <span>Voice &amp; Chat Agents</span> for Businesses</h1>
+        <div class="eyebrow">Lahore, Pakistan</div>
+        <h1>AI <span>Engineer</span></h1>
         <p class="hero-sub">I build agents that answer your customers, look up orders, and hand off to a human when it matters. Live demos below.</p>
         <div class="hero-actions">
           <a href="#demo" class="btn primary">Watch the demos</a>
           <a href="resume.pdf" class="btn" download>resume ↓</a>
-          <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20to%20book%20a%20free%2015-min%20call" class="btn" target="_blank" rel="noopener">Book a free 15-min call</a>
           <a href="https://github.com/Muhammad-Anas59" class="btn icon" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.61.69.5A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
           <a href="https://www.linkedin.com/in/muhammad-anas-a6bb5b2b3/" class="btn icon" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
         </div>
@@ -821,10 +829,15 @@
 
 <section id="clients">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>who I&#39;ve worked with</h2></div>
-    <div class="clients-box reveal">
-      <p>I&#39;ve worked remotely with clients in Australia and Canada, building AI and data solutions across time zones, with clear communication and working software delivered rather than slide decks. That adds up to 6+ months of hands-on experience shipping real systems.</p>
-      <div class="chips"><span class="chip">Australia</span><span class="chip">Canada</span><span class="chip">Remote-first</span></div>
+    <div class="sec-head reveal"><span class="sec-tag">04</span><h2>working with clients worldwide</h2></div>
+    <div class="intl-grid reveal">
+      <div class="intl-card"><span class="intl-code">AU</span><div><p class="intl-name">Australia</p><p class="intl-sub">Remote client work across time zones</p></div></div>
+      <div class="intl-card"><span class="intl-code">CA</span><div><p class="intl-name">Canada</p><p class="intl-sub">Remote client work across time zones</p></div></div>
+    </div>
+    <div class="intl-points reveal">
+      <div class="intl-point"><h3>Clear written updates</h3><p>Progress and decisions in writing, so nothing depends on overlapping hours.</p></div>
+      <div class="intl-point"><h3>Working demo first</h3><p>You see a real, running version early, before committing to a bigger build.</p></div>
+      <div class="intl-point"><h3>Async-friendly</h3><p>Comfortable collaborating across Pakistan, Australia and Canada time zones.</p></div>
     </div>
   </div>
 </section>
@@ -876,6 +889,7 @@
 <section id="experience">
   <div class="wrap">
     <div class="sec-head reveal"><span class="sec-tag">06</span><h2>experience</h2></div>
+    <div class="exp-summary reveal"><span class="big">1 year</span><span class="lbl">of hands-on experience building and shipping AI systems</span></div>
     <div class="exp-card reveal">
       <div class="exp-head">
         <span class="exp-role">AI &amp; Machine Learning Intern — <span class="exp-company">Big Brains</span></span>
@@ -949,8 +963,7 @@
       <h3>I&#39;ll build a free working demo on your FAQs</h3>
       <p>Send me your FAQs or policy documents on WhatsApp or email and I&#39;ll turn them into a working chat agent you can try, at no cost and with no obligation.</p>
       <div class="offer-actions">
-        <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20to%20book%20a%20free%2015-min%20call" class="btn primary" target="_blank" rel="noopener">Book a free 15-min call</a>
-        <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20a%20free%20demo%20on%20my%20FAQs" class="btn" target="_blank" rel="noopener">Request my free demo</a>
+        <a href="https://wa.me/923194794080?text=Hi%20Anas%2C%20I%27d%20like%20a%20free%20demo%20on%20my%20FAQs" class="btn primary" target="_blank" rel="noopener">Request my free demo</a>
       </div>
     </div>
     <div class="contact-grid reveal">
